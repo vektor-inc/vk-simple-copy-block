@@ -1,0 +1,1 @@
+# vk-copy-inner-block
