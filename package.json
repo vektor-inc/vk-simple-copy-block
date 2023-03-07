@@ -10,11 +10,13 @@
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js",
 		"lint:php": "composer install && composer format && composer phpcs",
+		"wp-env": "wp-env",
 		"packages-update": "wp-scripts packages-update",
 		"phpunit": "composer install && npx wp-env run phpunit \"phpunit -c /var/www/html/wp-content/plugins/vk-copy-inner-block/phpunit.xml.dist --verbose\"",
 		"prepare": "husky install"
 	},
 	"devDependencies": {
+		"@wordpress/env": "^5.13.0",
 		"@wordpress/scripts": "^25.4.0",
 		"gulp": "^4.0.2",
 		"husky": "^8.0.1"
