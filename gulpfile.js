@@ -5,7 +5,7 @@ const pluginName = 'vk-copy-inner-block';
 const gulp = require( 'gulp' );
 
 // ディストリビューションを作成
-gulp.task( 'dist', function ( done ) {
+gulp.task( 'dist', function( done ) {
 	const files = gulp.src(
 		[
 			'./build/**',

@@ -15,14 +15,14 @@ export default function save() {
 				<InnerBlocks.Content />
 			</div>
 			<div className="vk-copy-inner-button-wrapper">
-				<a className="vk-copy-inner-button btn btn-primary">
+				<div className="vk-copy-inner-button btn btn-primary">
 					<span className="vk-copy-inner-button-icon">
 						<CopyIcon />
 					</span>
 					<span className="vk-copy-inner-button-text">
 						コピーする
 					</span>
-				</a>
+				</div>
 			</div>
 		</div>
 	);

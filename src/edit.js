@@ -19,7 +19,7 @@ export default function InnerCopyEdit( props ) {
 
 	useEffect( () => {
 		setAttributes( { blockId: clientId } );
-	}, [ clientId ] );
+	}, [ clientId, setAttributes ] );
 
 	return (
 		<>
