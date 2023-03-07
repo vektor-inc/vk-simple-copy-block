@@ -57,7 +57,7 @@ add_filter( 'render_block_vk-copy-inner-block/copy-inner', 'vk_copy_inner_block_
 
 /**
  * SVGを保存できるようにする
- * 
+ *
  * Fix block saving for Non-Super-Admins (no unfiltered_html capability).
  * For Non-Super-Admins, some styles & HTML tags/attributes are removed upon saving,
  * this allows vkblocks HTML tags & attributes from being saved.
@@ -66,19 +66,18 @@ add_filter( 'render_block_vk-copy-inner-block/copy-inner', 'vk_copy_inner_block_
  *
  * @see The list of tags & attributes currently allowed: https://core.trac.wordpress.org/browser/tags/5.2/src/wp-includes/kses.php#L61
  *
- * @param array  $tags Allowed HTML tags & attributes.
- * @param string $context The context wherein the HTML is being filtered.
+ * @param array $tags Allowed HTML tags & attributes.
  *
  * @return array Modified HTML tags & attributes.
  */
 function vk_copy_inner_block_allow_wp_kses_allowed_html( $tags ) {
 	// Used by svg
 	$tags['svg']  = array(
-		'viewbox'             => true,
-		'xmlns'               => true,
+		'viewbox' => true,
+		'xmlns'   => true,
 	);
 	$tags['path'] = array(
-		'd'           => true,
+		'd' => true,
 	);
 	return $tags;
 }
