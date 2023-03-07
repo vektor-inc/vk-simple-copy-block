@@ -1,6 +1,6 @@
 === VK Copy Inner Block ===
-Requires at least: 6.2
-Tested up to: 6.2.0
+Requires at least: 6.1
+Tested up to: 6.1.0
 Stable tag: 0.1.0
 Requires PHP: 7.2
 License: GPLv2 or later

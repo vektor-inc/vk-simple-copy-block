@@ -5,7 +5,7 @@
  * Description: インナーブロックのコードをコピーするためのブロックです。
  * Version: 0.0.1
  * Stable tag: 0.0.1
- * Requires at least: 6.2
+ * Requires at least: 6.1
  * Author: Vektor,Inc.
  * Author URI: https://vektor-inc.co.jp
  * Text Domain: vk-copy-inner-block
