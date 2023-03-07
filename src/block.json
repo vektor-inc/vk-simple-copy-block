@@ -1,0 +1,19 @@
+{
+	"apiVersion": 2,
+	"name": "vk-copy-inner-block/copy-inner",
+	"category": "vk-blocks-cat",
+	"title": "コピーインナーブロック",
+	"description": "このブロックの中にあるブロックのコードをコピーするためのブロックです。",
+	"attributes": {
+		"blockId": {
+			"type": "string"
+		}
+	},
+	"supports": {
+		"className": true,
+		"reusable": false
+	},
+	"viewScript": [ "file:./view.js" ],
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}

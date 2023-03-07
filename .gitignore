@@ -1,0 +1,8 @@
+node_modules/
+build/
+dist/
+._.DS_Store
+.DS_Store
+vendor/
+*.override.json
+.vscode/
