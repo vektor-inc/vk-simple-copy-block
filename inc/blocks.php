@@ -28,9 +28,9 @@ function vk_copy_inner_block_render( $block_content, $block ) {
 	}
 
 	$pattern = '@
-	<!--\s*wp:vk-copy-inner-block/copy-inner\s*{"blockId":"(?<block_id>[a-z0-9]{8}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{4}-[a-z0-9]{12})"(.*?)}\s*-->\s*
+	<!--\s*wp:vk-copy-inner-block/copy-inner\s*{"blockId":"(?<block_id>[a-z0-9-]+)"(.*?)}\s*-->\s*
 	<div\s*class="wp-block-vk-copy-inner-block-copy-inner(.*?)"><div\s*class="vk-copy-inner-inner-blocks-wrapper">(?<inner_text>[\s\S]*?)</div>\s*
-	<div\s*class="vk-copy-inner-button-wrapper"><div\s*class="vk-copy-inner-button\s*btn\s*btn-primary"><span\s*class="vk-copy-inner-button-icon"><svg\s*xmlns="http://www.w3.org/2000/svg"\s*viewBox="0\s*0\s*512\s*512"><path\s*d="M224\s*0c-35.3\s*0-64\s*28.7-64\s*64V288c0\s*35.3\s*28.7\s*64\s*64\s*64H448c35.3\s*0\s*64-28.7\s*64-64V64c0-35.3-28.7-64-64-64H224zM64\s*160c-35.3\s*0-64\s*28.7-64\s*64V448c0\s*35.3\s*28.7\s*64\s*64\s*64H288c35.3\s*0\s*64-28.7\s*64-64V384H288v64H64V224h64V160H64z"></path></svg></span><span\s*class="vk-copy-inner-button-text">コピーする</span></div></div></div>\s*
+	.+?\s*
 	<!--\s*/wp:vk-copy-inner-block/copy-inner\s*-->
 	@x';
 
