@@ -30,7 +30,9 @@ function vk_copy_inner_block_render( $block_content, $block ) {
 	$pattern = '@
 	<!--\s*wp:vk-copy-inner-block/copy-inner\s*{"blockId":"(?<block_id>[a-z0-9-]+)"(.*?)}\s*-->\s*
 	<div\s*class="wp-block-vk-copy-inner-block-copy-inner(.*?)"><div\s*class="vk-copy-inner-inner-blocks-wrapper">(?<inner_text>[\s\S]*?)</div>\s*
+	<div\s*class="vk-copy-inner-button-wrapper"><div\s*class="vk-copy-inner-button\s*btn\s*btn-primary"><span\s*class="vk-copy-inner-button-icon">
 	.+?\s*
+	</span><span\s*class="vk-copy-inner-button-text">コピーする</span></div></div></div>\s*
 	<!--\s*/wp:vk-copy-inner-block/copy-inner\s*-->
 	@x';
 
