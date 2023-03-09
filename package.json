@@ -8,7 +8,7 @@
 		"dist": "composer install --no-dev && npx gulp dist && composer install",
 		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
-		"lint:js": "wp-scripts lint-js",
+		"lint:js": "wp-scripts lint-js src/ --fix",
 		"lint:php": "composer install && composer format && composer phpcs",
 		"wp-env": "wp-env",
 		"packages-update": "wp-scripts packages-update",

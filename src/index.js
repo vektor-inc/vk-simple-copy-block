@@ -1,3 +1,6 @@
+/**
+ * WordPress dependencies
+ */
 import { registerBlockType } from '@wordpress/blocks';
 
 /**
@@ -11,9 +14,16 @@ import save from './save';
 
 const { name, ...settings } = json;
 
-registerBlockType( name, {
-	icon: <CopyIcon />,
-	...settings,
-	save,
-	edit,
-} );
+// ウィジェット,サイトエディタでは
+const pathString = window.location.pathname;
+if (
+	pathString.indexOf( 'site-editor.php' ) === -1 &&
+	pathString.indexOf( 'widgets.php' ) === -1
+) {
+	registerBlockType( name, {
+		icon: <CopyIcon />,
+		...settings,
+		save,
+		edit,
+	} );
+}
