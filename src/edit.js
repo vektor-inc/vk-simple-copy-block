@@ -25,13 +25,17 @@ import { CopyIcon } from './copy-icon';
 export default function InnerCopyEdit(props) {
 	const { setAttributes, clientId } = props;
 
-	// 親ブロックに再利用ブロックが存在するか
-	const { isParentsSynced } = useSelect(
+	/**
+	 * isParentsSynced 親ブロックに再利用ブロックが存在するか
+	 * isParentsInnerCopyBlock 親ブロックにインナーコピーブロックが存在するか
+	 */
+	const { isParentsSynced, isParentsInnerCopyBlock } = useSelect(
 		(select) => {
 			const { getBlockParents, getBlockName } = select(blockEditorStore);
 			const { getBlockType } = select(blocksStore);
 			const parentsIdArray = getBlockParents(clientId);
 			let _isParentsSynced = false;
+			let _isParentsInnerCopyBlock = false;
 			parentsIdArray.forEach((_clientId) => {
 				const blockName = getBlockName(_clientId);
 				const blockType = getBlockType(blockName);
@@ -40,10 +44,14 @@ export default function InnerCopyEdit(props) {
 				if (isSynced) {
 					_isParentsSynced = true;
 				}
+				if (blockName === 'vk-copy-inner-block/copy-inner') {
+					_isParentsInnerCopyBlock = true;
+				}
 			});
 
 			return {
 				isParentsSynced: _isParentsSynced,
+				isParentsInnerCopyBlock: _isParentsInnerCopyBlock,
 			};
 		},
 		[clientId]
@@ -73,6 +81,11 @@ export default function InnerCopyEdit(props) {
 				{isParentsSynced && (
 					<Warning>
 						再利用ブロックにインナーコピーブロックを含めることはできません。通常のブロックへ変換するか、完全に削除してください。
+					</Warning>
+				)}
+				{isParentsInnerCopyBlock && (
+					<Warning>
+						インナーコピーブロックの中にインナーコピーブロックを含めることはできません。削除してください。
 					</Warning>
 				)}
 				<div className="vk-copy-inner-inner-blocks-wrapper">
