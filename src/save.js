@@ -10,7 +10,7 @@ import { CopyIcon } from './copy-icon';
 
 export default function save() {
 	return (
-		<div { ...useBlockProps.save() }>
+		<div {...useBlockProps.save()}>
 			<div className="vk-copy-inner-inner-blocks-wrapper">
 				<InnerBlocks.Content />
 			</div>

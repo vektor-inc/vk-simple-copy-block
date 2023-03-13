@@ -14,16 +14,16 @@ import save from './save';
 
 const { name, ...settings } = json;
 
-// ウィジェット,サイトエディタでは
+// ウィジェット,サイトエディタでは登録させない
 const pathString = window.location.pathname;
 if (
-	pathString.indexOf( 'site-editor.php' ) === -1 &&
-	pathString.indexOf( 'widgets.php' ) === -1
+	pathString.indexOf('site-editor.php') === -1 &&
+	pathString.indexOf('widgets.php') === -1
 ) {
-	registerBlockType( name, {
+	registerBlockType(name, {
 		icon: <CopyIcon />,
 		...settings,
 		save,
 		edit,
-	} );
+	});
 }
