@@ -21,6 +21,7 @@ import { useSelect } from '@wordpress/data';
  * Internal dependencies
  */
 import { CopyIcon } from './copy-icon';
+import './editor.scss';
 
 export default function InnerCopyEdit(props) {
 	const { setAttributes, clientId } = props;
