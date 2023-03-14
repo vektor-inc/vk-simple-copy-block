@@ -26,9 +26,9 @@ class InnerCopyTest extends WP_UnitTestCase {
 			<!-- /wp:paragraph -->
 
 			<!-- wp:vk-copy-inner-block/copy-inner {"blockId":"5ae0b505-5e44-4fea-9e1e-9c9645b31051"} -->
-			<div class="wp-block-vk-copy-inner-block-copy-inner" data-vk-copy-inner-block="{&quot;copyBtnText&quot;:&quot;コピーする&quot;,&quot;copySuccessText&quot;:&quot;コピー完了&quot;}"><div class="vk-copy-inner-inner-blocks-wrapper"><!-- wp:paragraph {"backgroundColor":"black","textColor":"white"} -->
+			<div class="wp-block-vk-copy-inner-block-copy-inner"><div class="vk-copy-inner-inner-blocks-wrapper"><!-- wp:paragraph {"backgroundColor":"black","textColor":"white"} -->
 			<p class="has-white-color has-black-background-color has-text-color has-background">sample text</p>
-			<!-- /wp:paragraph --></div><div class="vk-copy-inner-button-wrapper"><div class="vk-copy-inner-button">コピーする</div></div></div>
+			<!-- /wp:paragraph --></div><div class="vk-copy-inner-button-wrapper"><div class="vk-copy-inner-button" data-vk-copy-inner-block="{&quot;copyBtnText&quot;:&quot;コピーする&quot;,&quot;copySuccessText&quot;:&quot;コピー完了&quot;}">コピーする</div></div></div>
 			<!-- /wp:vk-copy-inner-block/copy-inner -->',
 			'post_status'  => 'publish',
 		);
@@ -52,9 +52,9 @@ class InnerCopyTest extends WP_UnitTestCase {
 		$test_data = array(
 			// core/paragraph
 			array(
-				'block_content' => '<div class="wp-block-vk-copy-inner-block-copy-inner" data-vk-copy-inner-block="{"copyBtnText":"コピーする","copySuccessText":"コピー完了"}"><div class="vk-copy-inner-inner-blocks-wrapper">
+				'block_content' => '<div class="wp-block-vk-copy-inner-block-copy-inner"><div class="vk-copy-inner-inner-blocks-wrapper">
 				<p class="has-white-color has-black-background-color has-text-color has-background">sample text</p>
-				</div><div class="vk-copy-inner-button-wrapper"><div class="vk-copy-inner-button">コピーする</div></div></div>',
+				</div><div class="vk-copy-inner-button-wrapper"><div class="vk-copy-inner-button" data-vk-copy-inner-block="{"copyBtnText":"コピーする","copySuccessText":"コピー完了"}">コピーする</div></div></div>',
 				'block' => array(
 					'blockName' => 'vk-copy-inner-block/copy-inner',
 					'attrs' => array(
@@ -65,11 +65,11 @@ class InnerCopyTest extends WP_UnitTestCase {
 						'attrs' => array(),
 					),
 				),
-				'correct' => '<div class="wp-block-vk-copy-inner-block-copy-inner" data-vk-copy-inner-block="{"copyBtnText":"コピーする","copySuccessText":"コピー完了"}"><div class="vk-copy-inner-inner-blocks-wrapper">
+				'correct' => '<div class="wp-block-vk-copy-inner-block-copy-inner"><div class="vk-copy-inner-inner-blocks-wrapper">
 				<p class="has-white-color has-black-background-color has-text-color has-background">sample text</p>
 				</div><div class="vk-copy-inner-button-wrapper"><div data-clipboard-text="&lt;!-- wp:paragraph {&quot;backgroundColor&quot;:&quot;black&quot;,&quot;textColor&quot;:&quot;white&quot;} --&gt;
 			&lt;p class=&quot;has-white-color has-black-background-color has-text-color has-background&quot;&gt;sample text&lt;/p&gt;
-			&lt;!-- /wp:paragraph --&gt;" class="vk-copy-inner-button">コピーする</div></div></div>',
+			&lt;!-- /wp:paragraph --&gt;" class="vk-copy-inner-button" data-vk-copy-inner-block="{"copyBtnText":"コピーする","copySuccessText":"コピー完了"}">コピーする</div></div></div>',
 			),
 		);
 		print PHP_EOL;

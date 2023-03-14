@@ -107,10 +107,7 @@ export default function InnerCopyEdit(props) {
 					/>
 				</PanelBody>
 			</InspectorControls>
-			<div
-				{...useBlockProps()}
-				data-vk-copy-inner-block={JSON.stringify(dataAttribute)}
-			>
+			<div {...useBlockProps()}>
 				{isParentsSynced && (
 					<Warning>
 						再利用ブロックにインナーコピーブロックを含めることはできません。通常のブロックへ変換するか、完全に削除してください。
@@ -128,7 +125,10 @@ export default function InnerCopyEdit(props) {
 					/>
 				</div>
 				<div className="vk-copy-inner-button-wrapper">
-					<div className="vk-copy-inner-button">
+					<div
+						className="vk-copy-inner-button"
+						data-vk-copy-inner-block={JSON.stringify(dataAttribute)}
+					>
 						<RawHTML>
 							{!!copyBtnText ? copyBtnText : defaultCopyBtnText}
 						</RawHTML>

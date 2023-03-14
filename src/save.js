@@ -18,15 +18,15 @@ export default function save(props) {
 	};
 
 	return (
-		<div
-			{...useBlockProps.save()}
-			data-vk-copy-inner-block={JSON.stringify(dataAttribute)}
-		>
+		<div {...useBlockProps.save()}>
 			<div className="vk-copy-inner-inner-blocks-wrapper">
 				<InnerBlocks.Content />
 			</div>
 			<div className="vk-copy-inner-button-wrapper">
-				<div className="vk-copy-inner-button">
+				<div
+					className="vk-copy-inner-button"
+					data-vk-copy-inner-block={JSON.stringify(dataAttribute)}
+				>
 					<RawHTML>
 						{!!copyBtnText ? copyBtnText : defaultCopyBtnText}
 					</RawHTML>

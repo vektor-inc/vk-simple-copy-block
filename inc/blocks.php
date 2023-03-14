@@ -57,7 +57,7 @@ function vk_copy_inner_block_render( $block_content, $block ) {
 	$pattern = '@
 	<!--\s*wp:vk-copy-inner-block/copy-inner\s*{"blockId":"(?<block_id>[a-z0-9-]+)"(.*?)}\s*-->\s*
 	<div\s*class="wp-block-vk-copy-inner-block-copy-inner(.*?)"><div\s*class="vk-copy-inner-inner-blocks-wrapper">(?<inner_text>[\s\S]*?)</div>\s*
-	<div\s*class="vk-copy-inner-button-wrapper"><div\s*class="vk-copy-inner-button">
+	<div\s*class="vk-copy-inner-button-wrapper"><div\s*class="vk-copy-inner-button"\s*data-vk-copy-inner-block="(.*?)">
 	.+?\s*
 	</div></div></div>\s*
 	<!--\s*/wp:vk-copy-inner-block/copy-inner\s*-->
@@ -78,7 +78,7 @@ function vk_copy_inner_block_render( $block_content, $block ) {
 
 	if ( ! empty( $array[ $block_id ] ) ) {
 		wp_enqueue_script( 'clipboard' );
-		$block_content = str_replace( '<div class="vk-copy-inner-button">', '<div data-clipboard-text="' . esc_attr( $array[ $block_id ] ) . '" class="vk-copy-inner-button">', $block_content );
+		$block_content = str_replace( '<div class="vk-copy-inner-button"', '<div data-clipboard-text="' . esc_attr( $array[ $block_id ] ) . '" class="vk-copy-inner-button"', $block_content );
 		return $block_content;
 	}
 }
