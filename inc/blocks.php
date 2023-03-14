@@ -15,6 +15,33 @@ add_action(
 );
 
 /**
+ * Add Block Category
+ *
+ * @param array  $categories categories.
+ */
+add_filter(
+	'block_categories_all',
+	function ( $categories ) {
+		foreach ( $categories as $key => $value ) {
+			$keys[] = $value['slug'];
+		}
+		if ( ! in_array( 'vk-blocks-cat', $keys, true ) ) {
+			$categories = array_merge(
+				$categories,
+				array(
+					array(
+						'slug'  => 'vk-blocks-cat',
+						'title' => __( 'VK Blocks', 'vk-copy-inner-block' ),
+						'icon'  => '',
+					),
+				)
+			);
+		}
+		return $categories;
+	}
+);
+
+/**
  * Register Inner Copy block.
  *
  * @param string $block_content block_content.
@@ -30,9 +57,9 @@ function vk_copy_inner_block_render( $block_content, $block ) {
 	$pattern = '@
 	<!--\s*wp:vk-copy-inner-block/copy-inner\s*{"blockId":"(?<block_id>[a-z0-9-]+)"(.*?)}\s*-->\s*
 	<div\s*class="wp-block-vk-copy-inner-block-copy-inner(.*?)"><div\s*class="vk-copy-inner-inner-blocks-wrapper">(?<inner_text>[\s\S]*?)</div>\s*
-	<div\s*class="vk-copy-inner-button-wrapper"><div\s*class="vk-copy-inner-button\s*btn\s*btn-primary"><span\s*class="vk-copy-inner-button-icon">
+	<div\s*class="vk-copy-inner-button-wrapper"><div\s*class="vk-copy-inner-button">
 	.+?\s*
-	</span><span\s*class="vk-copy-inner-button-text">コピーする</span></div></div></div>\s*
+	</div></div></div>\s*
 	<!--\s*/wp:vk-copy-inner-block/copy-inner\s*-->
 	@x';
 
@@ -51,36 +78,9 @@ function vk_copy_inner_block_render( $block_content, $block ) {
 
 	if ( ! empty( $array[ $block_id ] ) ) {
 		wp_enqueue_script( 'clipboard' );
-		$block_content = str_replace( '<div class="vk-copy-inner-button btn btn-primary">', '<div data-clipboard-text="' . esc_attr( $array[ $block_id ] ) . '" class="vk-copy-inner-button btn btn-primary">', $block_content );
+		$block_content = str_replace( '<div class="vk-copy-inner-button">', '<div data-clipboard-text="' . esc_attr( $array[ $block_id ] ) . '" class="vk-copy-inner-button">', $block_content );
 		return $block_content;
 	}
 }
 add_filter( 'render_block_vk-copy-inner-block/copy-inner', 'vk_copy_inner_block_render', 10, 2 );
 
-/**
- * SVGを保存できるようにする
- *
- * Fix block saving for Non-Super-Admins (no unfiltered_html capability).
- * For Non-Super-Admins, some styles & HTML tags/attributes are removed upon saving,
- * this allows vkblocks HTML tags & attributes from being saved.
- *
- * For every vkblocks block, add the HTML tags and attributes used here.
- *
- * @see The list of tags & attributes currently allowed: https://core.trac.wordpress.org/browser/tags/5.2/src/wp-includes/kses.php#L61
- *
- * @param array $tags Allowed HTML tags & attributes.
- *
- * @return array Modified HTML tags & attributes.
- */
-function vk_copy_inner_block_allow_wp_kses_allowed_html( $tags ) {
-	// Used by svg
-	$tags['svg']  = array(
-		'viewbox' => true,
-		'xmlns'   => true,
-	);
-	$tags['path'] = array(
-		'd' => true,
-	);
-	return $tags;
-}
-add_filter( 'wp_kses_allowed_html', 'vk_copy_inner_block_allow_wp_kses_allowed_html' );

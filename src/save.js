@@ -2,26 +2,34 @@
  * WordPress dependencies
  */
 import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { RawHTML } from '@wordpress/element';
 
-/**
- * Internal dependencies
- */
-import { CopyIcon } from './copy-icon';
+export default function save(props) {
+	const { attributes } = props;
+	const { copyBtnText, copySuccessText } = attributes;
+	const defaultCopyBtnText = 'コピーする';
+	const defaultCopySuccessText = 'コピー完了';
 
-export default function save() {
+	const dataAttribute = {
+		copyBtnText: !!copyBtnText ? copyBtnText : defaultCopyBtnText,
+		copySuccessText: !!copySuccessText
+			? copySuccessText
+			: defaultCopySuccessText,
+	};
+
 	return (
-		<div {...useBlockProps.save()}>
+		<div
+			{...useBlockProps.save()}
+			data-vk-copy-inner-block={JSON.stringify(dataAttribute)}
+		>
 			<div className="vk-copy-inner-inner-blocks-wrapper">
 				<InnerBlocks.Content />
 			</div>
 			<div className="vk-copy-inner-button-wrapper">
-				<div className="vk-copy-inner-button btn btn-primary">
-					<span className="vk-copy-inner-button-icon">
-						<CopyIcon />
-					</span>
-					<span className="vk-copy-inner-button-text">
-						コピーする
-					</span>
+				<div className="vk-copy-inner-button">
+					<RawHTML>
+						{!!copyBtnText ? copyBtnText : defaultCopyBtnText}
+					</RawHTML>
 				</div>
 			</div>
 		</div>

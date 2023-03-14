@@ -6,8 +6,9 @@ import {
 	useBlockProps,
 	store as blockEditorStore,
 	Warning,
+	InspectorControls,
 } from '@wordpress/block-editor';
-import { useEffect } from '@wordpress/element';
+import { useEffect, RawHTML } from '@wordpress/element';
 import {
 	store as blocksStore,
 	getBlockTypes,
@@ -16,15 +17,18 @@ import {
 	isTemplatePart,
 } from '@wordpress/blocks';
 import { useSelect } from '@wordpress/data';
+import { TextControl, PanelBody } from '@wordpress/components';
 
 /**
  * Internal dependencies
  */
-import { CopyIcon } from './copy-icon';
 import './editor.scss';
 
 export default function InnerCopyEdit(props) {
-	const { setAttributes, clientId } = props;
+	const { attributes, setAttributes, clientId } = props;
+	const { copyBtnText, copySuccessText } = attributes;
+	const defaultCopyBtnText = 'コピーする';
+	const defaultCopySuccessText = 'コピー完了';
 
 	/**
 	 * isParentsSynced 親ブロックに再利用ブロックが存在するか
@@ -76,9 +80,37 @@ export default function InnerCopyEdit(props) {
 		(item) => !item.match(/vk-copy-inner-block/)
 	);
 
+	const dataAttribute = {
+		copyBtnText: !!copyBtnText ? copyBtnText : defaultCopyBtnText,
+		copySuccessText: !!copySuccessText
+			? copySuccessText
+			: defaultCopySuccessText,
+	};
+
 	return (
 		<>
-			<div {...useBlockProps()}>
+			<InspectorControls>
+				<PanelBody title="コピーインナーブロック設定">
+					<TextControl
+						label="コピーボタンテキスト"
+						value={!!copyBtnText ? copyBtnText : ''}
+						onChange={(value) => {
+							setAttributes({ copyBtnText: value });
+						}}
+					/>
+					<TextControl
+						label="コピー完了テキスト"
+						value={!!copySuccessText ? copySuccessText : ''}
+						onChange={(value) => {
+							setAttributes({ copySuccessText: value });
+						}}
+					/>
+				</PanelBody>
+			</InspectorControls>
+			<div
+				{...useBlockProps()}
+				data-vk-copy-inner-block={JSON.stringify(dataAttribute)}
+			>
 				{isParentsSynced && (
 					<Warning>
 						再利用ブロックにインナーコピーブロックを含めることはできません。通常のブロックへ変換するか、完全に削除してください。
@@ -96,13 +128,10 @@ export default function InnerCopyEdit(props) {
 					/>
 				</div>
 				<div className="vk-copy-inner-button-wrapper">
-					<div className="vk-copy-inner-button btn btn-primary">
-						<span className="vk-copy-inner-button-icon">
-							<CopyIcon />
-						</span>
-						<span className="vk-copy-inner-button-text">
-							コピーする
-						</span>
+					<div className="vk-copy-inner-button">
+						<RawHTML>
+							{!!copyBtnText ? copyBtnText : defaultCopyBtnText}
+						</RawHTML>
 					</div>
 				</div>
 			</div>

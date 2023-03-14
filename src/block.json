@@ -7,6 +7,12 @@
 	"attributes": {
 		"blockId": {
 			"type": "string"
+		},
+		"copyBtnText": {
+			"type": "string"
+		},
+		"copySuccessText": {
+			"type": "string"
 		}
 	},
 	"supports": {
