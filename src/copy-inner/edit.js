@@ -42,7 +42,7 @@ export default function InnerCopyEdit(props) {
 				if (isSynced) {
 					_isParentsSynced = true;
 				}
-				if (blockName === 'vk-copy-inner-block/copy-inner') {
+				if (blockName === 'vk-simple-copy-block/copy-inner') {
 					_isParentsInnerCopyBlock = true;
 				}
 			});
@@ -62,12 +62,12 @@ export default function InnerCopyEdit(props) {
 	}, [clientId, setAttributes, isParentsSynced]);
 
 	const ALLOWED_BLOCKS = [
-		'vk-copy-inner-block/copy-target',
-		'vk-copy-inner-block/copy-button',
+		'vk-simple-copy-block/copy-target',
+		'vk-simple-copy-block/copy-button',
 	];
 	const TEMPLATE = [
-		['vk-copy-inner-block/copy-target'],
-		['vk-copy-inner-block/copy-button'],
+		['vk-simple-copy-block/copy-target'],
+		['vk-simple-copy-block/copy-button'],
 	];
 
 	return (

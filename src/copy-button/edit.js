@@ -56,7 +56,7 @@ export default function Edit(props) {
 					style={{
 						...colorProps?.style,
 					}}
-					data-vk-copy-inner-block={JSON.stringify(dataAttribute)}
+					data-vk-simple-copy-block={JSON.stringify(dataAttribute)}
 				>
 					<RawHTML>{!!text ? text : defaultText}</RawHTML>
 				</div>

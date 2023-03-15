@@ -1,10 +1,10 @@
 {
 	"apiVersion": 2,
-	"name": "vk-copy-inner-block/copy-button",
+	"name": "vk-simple-copy-block/copy-button",
 	"category": "vk-blocks-cat",
 	"title": "コピーボタン",
 	"description": "コピーターゲットブロックのコードをコピーするボタン",
-	"parent": ["vk-copy-inner-block/copy-inner"],
+	"parent": ["vk-simple-copy-block/copy-inner"],
 	"attributes": {
 		"text": {
 			"type": "string"

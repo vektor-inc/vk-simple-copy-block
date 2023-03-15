@@ -1,4 +1,4 @@
-=== VK Copy Inner Block ===
+=== VK Simple Copy Block ===
 Requires at least: 6.1
 Tested up to: 6.1.0
 Stable tag: 0.1.0

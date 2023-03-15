@@ -2,7 +2,7 @@
 /**
  * Block functions specific for the Gutenberg editor plugin.
  *
- * @package vk-copy-inner-block
+ * @package vk-simple-copy-block
  */
 
 add_action(
@@ -15,7 +15,7 @@ add_action(
 		);
 		foreach ( $blocks as $block ) {
 			register_block_type(
-				VK_COPY_INNER_BLOCK_DIR_PATH . 'build/' . $block . '/',
+				VK_SIMPLE_COPY_BLOCK_DIR_PATH . 'build/' . $block . '/',
 			);
 		}
 	}
@@ -38,7 +38,7 @@ add_filter(
 				array(
 					array(
 						'slug'  => 'vk-blocks-cat',
-						'title' => __( 'VK Blocks', 'vk-copy-inner-block' ),
+						'title' => __( 'VK Blocks', 'vk-simple-copy-block' ),
 						'icon'  => '',
 					),
 				)
@@ -55,22 +55,22 @@ add_filter(
  * @param array  $block block.
  * @return string
  */
-function vk_copy_inner_block_render( $block_content, $block ) {
+function vk_simple_copy_block_render( $block_content, $block ) {
 	$block_id = $block['attrs']['blockId'];
 	if ( empty( $block_id ) ) {
 		return $block_content;
 	}
 
 	$pattern = '@
-	<!--\s*wp:vk-copy-inner-block/copy-inner\s*{"blockId":"(?<block_id>[a-z0-9-]+)"(.*?)}\s*-->\s*
-	<div\s*class="wp-block-vk-copy-inner-block-copy-inner(.*?)"><!--\s*wp:vk-copy-inner-block/copy-target(.*?)-->\s*
-	<div\s*class="wp-block-vk-copy-inner-block-copy-target(.*?)"(.*?)>(?<inner_text>[\s\S]*?)</div>\s*
+	<!--\s*wp:vk-simple-copy-block/copy-inner\s*{"blockId":"(?<block_id>[a-z0-9-]+)"(.*?)}\s*-->\s*
+	<div\s*class="wp-block-vk-simple-copy-block-copy-inner(.*?)"><!--\s*wp:vk-simple-copy-block/copy-target(.*?)-->\s*
+	<div\s*class="wp-block-vk-simple-copy-block-copy-target(.*?)"(.*?)>(?<inner_text>[\s\S]*?)</div>\s*
 	.+?\s*
-	<!--\s*wp:vk-copy-inner-block/copy-button(.*?)-->\s*
-	<div\s*class="wp-block-vk-copy-inner-block-copy-button(.*?)">\s*
+	<!--\s*wp:vk-simple-copy-block/copy-button(.*?)-->\s*
+	<div\s*class="wp-block-vk-simple-copy-block-copy-button(.*?)">\s*
 	.+?\s*
-	<!--\s*/wp:vk-copy-inner-block/copy-button\s*--></div>\s*
-	<!--\s*/wp:vk-copy-inner-block/copy-inner\s*-->
+	<!--\s*/wp:vk-simple-copy-block/copy-button\s*--></div>\s*
+	<!--\s*/wp:vk-simple-copy-block/copy-inner\s*-->
 	@x';
 
 	$content = get_the_content();
@@ -93,5 +93,5 @@ function vk_copy_inner_block_render( $block_content, $block ) {
 		return $block_content;
 	}
 }
-add_filter( 'render_block_vk-copy-inner-block/copy-inner', 'vk_copy_inner_block_render', 10, 2 );
+add_filter( 'render_block_vk-simple-copy-block/copy-inner', 'vk_simple_copy_block_render', 10, 2 );
 

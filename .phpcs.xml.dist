@@ -62,13 +62,13 @@
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
 			<!-- Value: replace the function, class, and variable prefixes used. Separate multiple prefixes with a comma. -->
-			<property name="prefixes" type="array" value="vk_copy_inner_block"/>
+			<property name="prefixes" type="array" value="vk_simple_copy_block"/>
 		</properties>
 	</rule>
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<!-- Value: replace the text domain used. -->
-			<property name="text_domain" type="array" value="vk-copy-inner-block"/>
+			<property name="text_domain" type="array" value="vk-simple-copy-block"/>
 		</properties>
 	</rule>
 	<rule ref="WordPress.WhiteSpace.ControlStructureSpacing">

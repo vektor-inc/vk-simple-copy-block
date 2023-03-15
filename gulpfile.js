@@ -1,5 +1,5 @@
 //プラグイン名
-const pluginName = 'vk-copy-inner-block';
+const pluginName = 'vk-simple-copy-block';
 
 // モジュールをロード
 const gulp = require('gulp');
@@ -12,7 +12,7 @@ gulp.task('dist', function (done) {
 			'./vendor/**',
 			'./inc/**',
 			'./readme.txt',
-			'./vk-copy-inner-block.php',
+			'./vk-simple-copy-block.php',
 			'!./node_mudules/**',
 			'!./tests/**',
 		],

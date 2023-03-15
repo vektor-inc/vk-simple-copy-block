@@ -2,7 +2,7 @@
 /**
  * Load API functions, register scripts and actions, etc.
  *
- * @package vk-copy-inner-block
+ * @package vk-simple-copy-block
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

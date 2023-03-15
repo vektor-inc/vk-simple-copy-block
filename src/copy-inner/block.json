@@ -1,6 +1,6 @@
 {
 	"apiVersion": 2,
-	"name": "vk-copy-inner-block/copy-inner",
+	"name": "vk-simple-copy-block/copy-inner",
 	"category": "vk-blocks-cat",
 	"title": "シンプルコピー",
 	"description": "コピーターゲットの中にあるブロックのコードをコピーするためのブロックです。",

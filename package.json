@@ -1,5 +1,5 @@
 {
-	"name": "vk-copy-inner-block",
+	"name": "vk-simple-copy-block",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
 	"scripts": {
@@ -12,7 +12,7 @@
 		"lint:php": "composer install && composer format && composer phpcs",
 		"wp-env": "wp-env",
 		"packages-update": "wp-scripts packages-update",
-		"phpunit": "composer install && npx wp-env run phpunit \"phpunit -c /var/www/html/wp-content/plugins/vk-copy-inner-block/phpunit.xml.dist --verbose\"",
+		"phpunit": "composer install && npx wp-env run phpunit \"phpunit -c /var/www/html/wp-content/plugins/vk-simple-copy-block/phpunit.xml.dist --verbose\"",
 		"prepare": "husky install"
 	},
 	"devDependencies": {

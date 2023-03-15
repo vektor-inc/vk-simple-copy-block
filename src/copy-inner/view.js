@@ -7,7 +7,7 @@ window.addEventListener('load', function () {
 		const btn = e.trigger;
 		btn.classList.add('copy-success');
 		const attributes = JSON.parse(
-			btn.getAttribute('data-vk-copy-inner-block')
+			btn.getAttribute('data-vk-simple-copy-block')
 		);
 		let btnBefore = btn.innerHTML;
 		btnBefore = btnBefore.replace(attributes.text, attributes.successText);

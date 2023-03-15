@@ -7,7 +7,7 @@ import { getBlockTypes, hasBlockSupport } from '@wordpress/blocks';
 export default function Edit() {
 	const blockProps = useBlockProps();
 
-	// インナーブロックで許可するブロック vk-copy-inner-blockは除く
+	// インナーブロックで許可するブロック vk-simple-copy-blockは除く
 	const allowBlockTypes = [];
 	getBlockTypes().forEach((blockType) => {
 		if (hasBlockSupport(blockType, 'inserter', true) && !blockType.parent) {
@@ -16,7 +16,7 @@ export default function Edit() {
 	});
 	const AllBlockName = allowBlockTypes.map((blockType) => blockType.name);
 	const ALLOWED_BLOCKS = AllBlockName.filter(
-		(item) => !item.match(/vk-copy-inner-block/)
+		(item) => !item.match(/vk-simple-copy-block/)
 	);
 
 	return (

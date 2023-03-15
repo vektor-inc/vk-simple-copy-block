@@ -1,10 +1,10 @@
 {
 	"apiVersion": 2,
-	"name": "vk-copy-inner-block/copy-target",
+	"name": "vk-simple-copy-block/copy-target",
 	"category": "vk-blocks-cat",
 	"title": "コピーターゲット",
 	"description": "コピー対象のブロック",
-	"parent": ["vk-copy-inner-block/copy-inner"],
+	"parent": ["vk-simple-copy-block/copy-inner"],
 	"supports": {
 		"className": true,
 		"spacing": {

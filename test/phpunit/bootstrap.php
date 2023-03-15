@@ -39,7 +39,7 @@ define( 'GUTENBERG_LOAD_VENDOR_SCRIPTS', false );
  * テストするプラグインを読み込み
  */
 function _manually_load_plugin() {
-	require_once dirname( dirname( dirname( __FILE__ ) ) ) . '/vk-copy-inner-block.php';
+	require_once dirname( dirname( dirname( __FILE__ ) ) ) . '/vk-simple-copy-block.php';
 }
 tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );
 
