@@ -4,7 +4,7 @@
 	"category": "vk-blocks-cat",
 	"title": "コピーターゲット",
 	"description": "コピー対象のブロック",
-	"parent": ["vk-simple-copy-block/copy-inner"],
+	"parent": ["vk-simple-copy-block/simple-copy"],
 	"supports": {
 		"className": true,
 		"spacing": {

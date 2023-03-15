@@ -9,13 +9,13 @@ add_action(
 	'init',
 	function () {
 		$blocks = array(
-			'copy-inner',
+			'simple-copy',
 			'copy-target',
-			'copy-button'
+			'copy-button',
 		);
 		foreach ( $blocks as $block ) {
 			register_block_type(
-				VK_SIMPLE_COPY_BLOCK_DIR_PATH . 'build/' . $block . '/',
+				VK_SIMPLE_COPY_BLOCK_DIR_PATH . 'build/' . $block . '/'
 			);
 		}
 	}
@@ -62,15 +62,15 @@ function vk_simple_copy_block_render( $block_content, $block ) {
 	}
 
 	$pattern = '@
-	<!--\s*wp:vk-simple-copy-block/copy-inner\s*{"blockId":"(?<block_id>[a-z0-9-]+)"(.*?)}\s*-->\s*
-	<div\s*class="wp-block-vk-simple-copy-block-copy-inner(.*?)"><!--\s*wp:vk-simple-copy-block/copy-target(.*?)-->\s*
+	<!--\s*wp:vk-simple-copy-block/simple-copy\s*{"blockId":"(?<block_id>[a-z0-9-]+)"(.*?)}\s*-->\s*
+	<div\s*class="wp-block-vk-simple-copy-block-simple-copy(.*?)"><!--\s*wp:vk-simple-copy-block/copy-target(.*?)-->\s*
 	<div\s*class="wp-block-vk-simple-copy-block-copy-target(.*?)"(.*?)>(?<inner_text>[\s\S]*?)</div>\s*
 	.+?\s*
 	<!--\s*wp:vk-simple-copy-block/copy-button(.*?)-->\s*
 	<div\s*class="wp-block-vk-simple-copy-block-copy-button(.*?)">\s*
 	.+?\s*
 	<!--\s*/wp:vk-simple-copy-block/copy-button\s*--></div>\s*
-	<!--\s*/wp:vk-simple-copy-block/copy-inner\s*-->
+	<!--\s*/wp:vk-simple-copy-block/simple-copy\s*-->
 	@x';
 
 	$content = get_the_content();
@@ -89,9 +89,9 @@ function vk_simple_copy_block_render( $block_content, $block ) {
 	if ( ! empty( $array[ $block_id ] ) ) {
 		wp_enqueue_script( 'clipboard' );
 		$raw_block_content = htmlentities( $array[ $block_id ] );
-		$block_content = str_replace( '<div class="vk-copy-inner-button', '<div data-clipboard-text="' . esc_attr( $raw_block_content ) . '" class="vk-copy-inner-button', $block_content );
+		$block_content     = str_replace( '<div class="vk-copy-inner-button', '<div data-clipboard-text="' . esc_attr( $raw_block_content ) . '" class="vk-copy-inner-button', $block_content );
 		return $block_content;
 	}
 }
-add_filter( 'render_block_vk-simple-copy-block/copy-inner', 'vk_simple_copy_block_render', 10, 2 );
+add_filter( 'render_block_vk-simple-copy-block/simple-copy', 'vk_simple_copy_block_render', 10, 2 );
 

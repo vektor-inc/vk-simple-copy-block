@@ -25,19 +25,19 @@ class InnerCopyTest extends WP_UnitTestCase {
 			<p>コア静的ブロック</p>
 			<!-- /wp:paragraph -->
 
-			<!-- wp:vk-simple-copy-block/copy-inner {"blockId":"5ae0b505-5e44-4fea-9e1e-9c9645b31051"} -->
+			<!-- wp:vk-simple-copy-block/simple-copy {"blockId":"5ae0b505-5e44-4fea-9e1e-9c9645b31051"} -->
 			<div class="wp-block-vk-simple-copy-block-copy-inner"><div class="vk-copy-inner-inner-blocks-wrapper"><!-- wp:paragraph {"backgroundColor":"black","textColor":"white"} -->
 			<p class="has-white-color has-black-background-color has-text-color has-background">sample text</p>
 			<!-- /wp:paragraph --></div><div class="vk-copy-inner-button-wrapper"><div class="vk-copy-inner-button" data-vk-simple-copy-block="{&quot;copyBtnText&quot;:&quot;コピーする&quot;,&quot;copySuccessText&quot;:&quot;コピー完了&quot;}">コピーする</div></div></div>
-			<!-- /wp:vk-simple-copy-block/copy-inner -->
+			<!-- /wp:vk-simple-copy-block/simple-copy -->
 
-			<!-- wp:vk-simple-copy-block/copy-inner {"blockId":"6d2abe76-5de2-4b5e-a1f0-24b45ff0ab09"} -->
+			<!-- wp:vk-simple-copy-block/simple-copy {"blockId":"6d2abe76-5de2-4b5e-a1f0-24b45ff0ab09"} -->
 			<div class="wp-block-vk-simple-copy-block-copy-inner"><div class="vk-copy-inner-inner-blocks-wrapper"><!-- wp:vk-blocks/slider {"blockId":"3d9abe44-433e-4a28-9c57-82be59439732"} -->
 			<div class="wp-block-vk-blocks-slider swiper swiper-container vk_slider vk_slider_3d9abe44-433e-4a28-9c57-82be59439732" data-vkb-slider="{&quot;autoPlay&quot;:true,&quot;autoPlayStop&quot;:false,&quot;autoPlayDelay&quot;:2500,&quot;pagination&quot;:&quot;bullets&quot;,&quot;blockId&quot;:&quot;3d9abe44-433e-4a28-9c57-82be59439732&quot;,&quot;width&quot;:&quot;&quot;,&quot;loop&quot;:true,&quot;effect&quot;:&quot;slide&quot;,&quot;speed&quot;:500,&quot;slidesPerViewMobile&quot;:1,&quot;slidesPerViewTablet&quot;:1,&quot;slidesPerViewPC&quot;:1,&quot;slidesPerGroup&quot;:&quot;one-by-one&quot;}"><div class="swiper-wrapper"><!-- wp:vk-blocks/slider-item {"blockId":"c74b26a4-b231-433d-861a-c221dbf45053"} -->
 			<div class="wp-block-vk-blocks-slider-item vk_slider_item swiper-slide vk_valign-center vk_slider_item-c74b26a4-b231-433d-861a-c221dbf45053  vk_slider_item-paddingLR-none vk_slider_item-paddingVertical-none"><div class="vk_slider_item-background-area has-background-dim has-background-dim-5"></div><div class="vk_slider_item_container container"></div></div>
 			<!-- /wp:vk-blocks/slider-item --></div><div class="swiper-button-next swiper-button-mobile-bottom"></div><div class="swiper-button-prev swiper-button-mobile-bottom"></div><div class="swiper-pagination swiper-pagination-bullets"></div></div>
 			<!-- /wp:vk-blocks/slider --></div><div class="vk-copy-inner-button-wrapper"><div class="vk-copy-inner-button" data-vk-simple-copy-block="{&quot;copyBtnText&quot;:&quot;コピーする&quot;,&quot;copySuccessText&quot;:&quot;コピー完了&quot;}">コピーする</div></div></div>
-			<!-- /wp:vk-simple-copy-block/copy-inner -->',
+			<!-- /wp:vk-simple-copy-block/simple-copy -->',
 			'post_status'  => 'publish',
 		);
 		$this->post_id = wp_insert_post( $post );
@@ -64,7 +64,7 @@ class InnerCopyTest extends WP_UnitTestCase {
 				<p class="has-white-color has-black-background-color has-text-color has-background">sample text</p>
 				</div><div class="vk-copy-inner-button-wrapper"><div class="vk-copy-inner-button" data-vk-simple-copy-block="{"copyBtnText":"コピーする","copySuccessText":"コピー完了"}">コピーする</div></div></div>',
 				'block' => array(
-					'blockName' => 'vk-simple-copy-block/copy-inner',
+					'blockName' => 'vk-simple-copy-block/simple-copy',
 					'attrs' => array(
 						'blockId' => '5ae0b505-5e44-4fea-9e1e-9c9645b31051'
 					),
@@ -87,7 +87,7 @@ class InnerCopyTest extends WP_UnitTestCase {
 				<div class="wp-block-vk-blocks-slider-item vk_slider_item swiper-slide vk_valign-center vk_slider_item-c74b26a4-b231-433d-861a-c221dbf45053 vk_slider_item-paddingLR-none vk_slider_item-paddingVertical-none swiper-slide-duplicate swiper-slide-active swiper-slide-duplicate-prev" data-swiper-slide-index="0" style="width: 872px;" role="group" aria-label="1 / 1"><div class="vk_slider_item-background-area has-background-dim has-background-dim-5"></div><div class="vk_slider_item_container container"></div></div></div><div class="swiper-button-next swiper-button-mobile-bottom" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-f8105de9767a993e0"></div><div class="swiper-button-prev swiper-button-mobile-bottom" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-f8105de9767a993e0"></div><div class="swiper-pagination swiper-pagination-bullets swiper-pagination-clickable"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1"></span></div><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
 				</div><div class="vk-copy-inner-button-wrapper"><div class="vk-copy-inner-button" data-vk-simple-copy-block="{&quot;copyBtnText&quot;:&quot;コピーする&quot;,&quot;copySuccessText&quot;:&quot;コピー完了&quot;}">コピーする</div></div></div>',
 				'block' => array(
-					'blockName' => 'vk-simple-copy-block/copy-inner',
+					'blockName' => 'vk-simple-copy-block/simple-copy',
 					'attrs' => array(
 						'blockId' => '6d2abe76-5de2-4b5e-a1f0-24b45ff0ab09'
 					),

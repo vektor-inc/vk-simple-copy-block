@@ -4,7 +4,7 @@
 	"category": "vk-blocks-cat",
 	"title": "コピーボタン",
 	"description": "コピーターゲットブロックのコードをコピーするボタン",
-	"parent": ["vk-simple-copy-block/copy-inner"],
+	"parent": ["vk-simple-copy-block/simple-copy"],
 	"attributes": {
 		"text": {
 			"type": "string"

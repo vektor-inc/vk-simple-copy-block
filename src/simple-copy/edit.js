@@ -42,7 +42,7 @@ export default function InnerCopyEdit(props) {
 				if (isSynced) {
 					_isParentsSynced = true;
 				}
-				if (blockName === 'vk-simple-copy-block/copy-inner') {
+				if (blockName === 'vk-simple-copy-block/simple-copy') {
 					_isParentsInnerCopyBlock = true;
 				}
 			});
