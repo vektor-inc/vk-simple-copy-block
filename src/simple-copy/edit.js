@@ -2,10 +2,10 @@
  * WordPress dependencies
  */
 import {
-	InnerBlocks,
 	useBlockProps,
 	store as blockEditorStore,
 	Warning,
+	useInnerBlocksProps,
 } from '@wordpress/block-editor';
 import { useEffect } from '@wordpress/element';
 import {
@@ -25,7 +25,7 @@ export default function InnerCopyEdit(props) {
 
 	/**
 	 * isParentsSynced 親ブロックに再利用ブロックが存在するか
-	 * isParentsInnerCopyBlock 親ブロックにインナーコピーブロックが存在するか
+	 * isParentsInnerCopyBlock 親ブロックにシンプルコピーブロックが存在するか
 	 */
 	const { isParentsSynced, isParentsInnerCopyBlock } = useSelect(
 		(select) => {
@@ -70,25 +70,27 @@ export default function InnerCopyEdit(props) {
 		['vk-simple-copy-block/copy-button'],
 	];
 
+	const blockProps = useBlockProps();
+
+	const innerBlocksProps = useInnerBlocksProps( blockProps, {
+		allowedBlocks: ALLOWED_BLOCKS,
+		template: TEMPLATE,
+		templateLock: "all",
+	} );
+
 	return (
 		<>
-			<div {...useBlockProps()}>
-				{isParentsSynced && (
-					<Warning>
-						再利用ブロックにインナーコピーブロックを含めることはできません。通常のブロックへ変換するか、完全に削除してください。
-					</Warning>
-				)}
-				{isParentsInnerCopyBlock && (
-					<Warning>
-						インナーコピーブロックの中にインナーコピーブロックを含めることはできません。削除してください。
-					</Warning>
-				)}
-				<InnerBlocks
-					template={TEMPLATE}
-					allowedBlocks={ALLOWED_BLOCKS}
-					templateLock="all"
-				/>
-			</div>
+			{isParentsSynced && (
+				<Warning>
+					再利用ブロックにシンプルコピーブロックを含めることはできません。通常のブロックへ変換するか、完全に削除してください。
+				</Warning>
+			)}
+			{isParentsInnerCopyBlock && (
+				<Warning>
+					シンプルコピーブロックの中にシンプルコピーブロックを含めることはできません。削除してください。
+				</Warning>
+			)}
+			<div { ...innerBlocksProps } />
 		</>
 	);
 }

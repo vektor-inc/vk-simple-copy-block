@@ -1,12 +1,10 @@
 /**
  * WordPress dependencies
  */
-import { InnerBlocks, useBlockProps } from '@wordpress/block-editor';
+import { useInnerBlocksProps, useBlockProps } from '@wordpress/block-editor';
 import { getBlockTypes, hasBlockSupport } from '@wordpress/blocks';
 
 export default function Edit() {
-	const blockProps = useBlockProps();
-
 	// インナーブロックで許可するブロック vk-simple-copy-blockは除く
 	const allowBlockTypes = [];
 	getBlockTypes().forEach((blockType) => {
@@ -19,14 +17,16 @@ export default function Edit() {
 		(item) => !item.match(/vk-simple-copy-block/)
 	);
 
+	const blockProps = useBlockProps();
+
+	const innerBlocksProps = useInnerBlocksProps( blockProps, {
+		allowedBlocks: ALLOWED_BLOCKS,
+		templateLock: false,
+	} );
+
 	return (
 		<>
-			<div {...blockProps}>
-				<InnerBlocks
-					allowedBlocks={ALLOWED_BLOCKS}
-					templateLock={false}
-				/>
-			</div>
+			<div { ...innerBlocksProps } />
 		</>
 	);
 }
