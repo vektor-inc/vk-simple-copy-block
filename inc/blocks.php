@@ -89,7 +89,7 @@ function vk_simple_copy_block_render( $block_content, $block ) {
 	if ( ! empty( $array[ $block_id ] ) ) {
 		wp_enqueue_script( 'clipboard' );
 		$raw_block_content = htmlentities( $array[ $block_id ] , ENT_COMPAT, 'UTF-8');
-		$block_content     = str_replace( '<div class="vk-copy-inner-button', '<div data-clipboard-text="' . esc_attr( $raw_block_content ) . '" class="vk-copy-inner-button', $block_content );
+		$block_content     = str_replace( '<div class="vk-simple-copy-button', '<div data-clipboard-text="' . esc_attr( $raw_block_content ) . '" class="vk-simple-copy-button', $block_content );
 		return $block_content;
 	}
 }

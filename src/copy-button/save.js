@@ -28,7 +28,7 @@ export default function save(props) {
 		<div {...useBlockProps.save()}>
 			<div
 				className={classnames(
-					'vk-copy-inner-button',
+					'vk-simple-copy-button',
 					colorProps.className
 				)}
 				style={{

@@ -33,7 +33,7 @@ class SimpleCopyTest extends WP_UnitTestCase {
 			<!-- /wp:vk-simple-copy-block/copy-target -->
 
 			<!-- wp:vk-simple-copy-block/copy-button -->
-			<div class="wp-block-vk-simple-copy-block-copy-button"><div class="vk-copy-inner-button" data-vk-simple-copy-block="{&quot;text&quot;:&quot;コピーする&quot;,&quot;successText&quot;:&quot;コピー完了&quot;}">コピーする</div></div>
+			<div class="wp-block-vk-simple-copy-block-copy-button"><div class="vk-simple-copy-button" data-vk-simple-copy-block="{&quot;text&quot;:&quot;コピーする&quot;,&quot;successText&quot;:&quot;コピー完了&quot;}">コピーする</div></div>
 			<!-- /wp:vk-simple-copy-block/copy-button --></div>
 			<!-- /wp:vk-simple-copy-block/simple-copy -->
 
@@ -47,7 +47,7 @@ class SimpleCopyTest extends WP_UnitTestCase {
 			<!-- /wp:vk-simple-copy-block/copy-target -->
 
 			<!-- wp:vk-simple-copy-block/copy-button -->
-			<div class="wp-block-vk-simple-copy-block-copy-button"><div class="vk-copy-inner-button" data-vk-simple-copy-block="{&quot;text&quot;:&quot;コピーする&quot;,&quot;successText&quot;:&quot;コピー完了&quot;}">コピーする</div></div>
+			<div class="wp-block-vk-simple-copy-block-copy-button"><div class="vk-simple-copy-button" data-vk-simple-copy-block="{&quot;text&quot;:&quot;コピーする&quot;,&quot;successText&quot;:&quot;コピー完了&quot;}">コピーする</div></div>
 			<!-- /wp:vk-simple-copy-block/copy-button --></div>
 			<!-- /wp:vk-simple-copy-block/simple-copy -->
 			',
@@ -77,7 +77,7 @@ class SimpleCopyTest extends WP_UnitTestCase {
 				<div class="wp-block-vk-simple-copy-block-copy-target">
 				<p class="has-white-color has-black-background-color has-text-color has-background">sample text</p>
 				</div>
-				<div class="wp-block-vk-simple-copy-block-copy-button"><div class="vk-copy-inner-button" data-vk-simple-copy-block="{&quot;text&quot;:&quot;コピーする&quot;,&quot;successText&quot;:&quot;コピー完了&quot;}">コピーする</div></div>
+				<div class="wp-block-vk-simple-copy-block-copy-button"><div class="vk-simple-copy-button" data-vk-simple-copy-block="{&quot;text&quot;:&quot;コピーする&quot;,&quot;successText&quot;:&quot;コピー完了&quot;}">コピーする</div></div>
 				</div>',
 				'block' => array(
 					'blockName' => 'vk-simple-copy-block/simple-copy',
@@ -95,7 +95,7 @@ class SimpleCopyTest extends WP_UnitTestCase {
 				</div>
 				<div class="wp-block-vk-simple-copy-block-copy-button"><div data-clipboard-text="&lt;!-- wp:paragraph {&quot;backgroundColor&quot;:&quot;black&quot;,&quot;textColor&quot;:&quot;white&quot;} --&gt;
 			&lt;p class=&quot;has-white-color has-black-background-color has-text-color has-background&quot;&gt;sample text&lt;/p&gt;
-			&lt;!-- /wp:paragraph --&gt;" class="vk-copy-inner-button" data-vk-simple-copy-block="{&quot;text&quot;:&quot;コピーする&quot;,&quot;successText&quot;:&quot;コピー完了&quot;}">コピーする</div></div>
+			&lt;!-- /wp:paragraph --&gt;" class="vk-simple-copy-button" data-vk-simple-copy-block="{&quot;text&quot;:&quot;コピーする&quot;,&quot;successText&quot;:&quot;コピー完了&quot;}">コピーする</div></div>
 				</div>',
 			),
 			// vk-blocks/slider
@@ -106,7 +106,7 @@ class SimpleCopyTest extends WP_UnitTestCase {
 				<div class="wp-block-vk-blocks-slider-item vk_slider_item swiper-slide vk_valign-center vk_slider_item-7b55ae46-880f-4466-bc1e-b4d6818c0fa8  vk_slider_item-paddingLR-none vk_slider_item-paddingVertical-none"><div class="vk_slider_item-background-area has-background-dim has-background-dim-5"></div><div class="vk_slider_item_container container"></div></div>
 				</div><div class="swiper-button-next swiper-button-mobile-bottom"></div><div class="swiper-button-prev swiper-button-mobile-bottom"></div><div class="swiper-pagination swiper-pagination-bullets"></div></div>
 				</div>
-				<div class="wp-block-vk-simple-copy-block-copy-button"><div class="vk-copy-inner-button" data-vk-simple-copy-block="{&quot;text&quot;:&quot;コピーする&quot;,&quot;successText&quot;:&quot;コピー完了&quot;}">コピーする</div></div>
+				<div class="wp-block-vk-simple-copy-block-copy-button"><div class="vk-simple-copy-button" data-vk-simple-copy-block="{&quot;text&quot;:&quot;コピーする&quot;,&quot;successText&quot;:&quot;コピー完了&quot;}">コピーする</div></div>
 				</div>',
 				'block' => array(
 					'blockName' => 'vk-simple-copy-block/simple-copy',
@@ -128,7 +128,7 @@ class SimpleCopyTest extends WP_UnitTestCase {
 			&lt;div class=&quot;wp-block-vk-blocks-slider swiper swiper-container vk_slider vk_slider_aaf938a3-01df-4c9c-88b2-44ab2ac0864c&quot; data-vkb-slider=&quot;{&amp;quot;autoPlay&amp;quot;:true,&amp;quot;autoPlayStop&amp;quot;:false,&amp;quot;autoPlayDelay&amp;quot;:2500,&amp;quot;pagination&amp;quot;:&amp;quot;bullets&amp;quot;,&amp;quot;blockId&amp;quot;:&amp;quot;aaf938a3-01df-4c9c-88b2-44ab2ac0864c&amp;quot;,&amp;quot;width&amp;quot;:&amp;quot;&amp;quot;,&amp;quot;loop&amp;quot;:true,&amp;quot;effect&amp;quot;:&amp;quot;slide&amp;quot;,&amp;quot;speed&amp;quot;:500,&amp;quot;slidesPerViewMobile&amp;quot;:1,&amp;quot;slidesPerViewTablet&amp;quot;:1,&amp;quot;slidesPerViewPC&amp;quot;:1,&amp;quot;slidesPerGroup&amp;quot;:&amp;quot;one-by-one&amp;quot;}&quot;&gt;&lt;div class=&quot;swiper-wrapper&quot;&gt;&lt;!-- wp:vk-blocks/slider-item {&quot;blockId&quot;:&quot;7b55ae46-880f-4466-bc1e-b4d6818c0fa8&quot;} --&gt;
 			&lt;div class=&quot;wp-block-vk-blocks-slider-item vk_slider_item swiper-slide vk_valign-center vk_slider_item-7b55ae46-880f-4466-bc1e-b4d6818c0fa8  vk_slider_item-paddingLR-none vk_slider_item-paddingVertical-none&quot;&gt;&lt;div class=&quot;vk_slider_item-background-area has-background-dim has-background-dim-5&quot;&gt;&lt;/div&gt;&lt;div class=&quot;vk_slider_item_container container&quot;&gt;&lt;/div&gt;&lt;/div&gt;
 			&lt;!-- /wp:vk-blocks/slider-item --&gt;&lt;/div&gt;&lt;div class=&quot;swiper-button-next swiper-button-mobile-bottom&quot;&gt;&lt;/div&gt;&lt;div class=&quot;swiper-button-prev swiper-button-mobile-bottom&quot;&gt;&lt;/div&gt;&lt;div class=&quot;swiper-pagination swiper-pagination-bullets&quot;&gt;&lt;/div&gt;&lt;/div&gt;
-			&lt;!-- /wp:vk-blocks/slider --&gt;" class="vk-copy-inner-button" data-vk-simple-copy-block="{&quot;text&quot;:&quot;コピーする&quot;,&quot;successText&quot;:&quot;コピー完了&quot;}">コピーする</div></div>
+			&lt;!-- /wp:vk-blocks/slider --&gt;" class="vk-simple-copy-button" data-vk-simple-copy-block="{&quot;text&quot;:&quot;コピーする&quot;,&quot;successText&quot;:&quot;コピー完了&quot;}">コピーする</div></div>
 				</div>',
 			),
 		);

@@ -50,7 +50,7 @@ export default function Edit(props) {
 			<div {...useBlockProps()}>
 				<div
 					className={classnames(
-						'vk-copy-inner-button',
+						'vk-simple-copy-button',
 						colorProps.className
 					)}
 					style={{

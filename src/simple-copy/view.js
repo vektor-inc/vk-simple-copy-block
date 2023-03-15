@@ -2,7 +2,7 @@
 
 window.addEventListener('load', function () {
 	// ClipboardJSを実行
-	const clipboard = new ClipboardJS('.vk-copy-inner-button');
+	const clipboard = new ClipboardJS('.vk-simple-copy-button');
 	clipboard.on('success', function (e) {
 		const btn = e.trigger;
 		btn.classList.add('copy-success');
