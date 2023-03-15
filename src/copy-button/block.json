@@ -1,0 +1,29 @@
+{
+	"apiVersion": 2,
+	"name": "vk-copy-inner-block/copy-button",
+	"category": "vk-blocks-cat",
+	"title": "コピーボタン",
+	"description": "コピーターゲットブロックのコードをコピーするボタン",
+	"parent": ["vk-copy-inner-block/copy-inner"],
+	"attributes": {
+		"text": {
+			"type": "string"
+		},
+		"successText": {
+			"type": "string"
+		}
+	},
+	"supports": {
+		"className": true,
+		"color": {
+			"__experimentalSkipSerialization": true,
+			"gradients": true,
+			"__experimentalDefaultControls": {
+				"background": true,
+				"text": true
+			}
+		},
+		"reusable": false
+	},
+	"editorScript": "file:./index.js"
+}

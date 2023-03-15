@@ -2,16 +2,10 @@
 	"apiVersion": 2,
 	"name": "vk-copy-inner-block/copy-inner",
 	"category": "vk-blocks-cat",
-	"title": "コピーインナーブロック",
-	"description": "このブロックの中にあるブロックのコードをコピーするためのブロックです。",
+	"title": "シンプルコピー",
+	"description": "コピーターゲットの中にあるブロックのコードをコピーするためのブロックです。",
 	"attributes": {
 		"blockId": {
-			"type": "string"
-		},
-		"copyBtnText": {
-			"type": "string"
-		},
-		"copySuccessText": {
 			"type": "string"
 		}
 	},

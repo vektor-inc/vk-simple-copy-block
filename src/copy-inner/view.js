@@ -10,17 +10,14 @@ window.addEventListener('load', function () {
 			btn.getAttribute('data-vk-copy-inner-block')
 		);
 		let btnBefore = btn.innerHTML;
-		btnBefore = btnBefore.replace(
-			attributes.copyBtnText,
-			attributes.copySuccessText
-		);
+		btnBefore = btnBefore.replace(attributes.text, attributes.successText);
 		btn.innerHTML = btnBefore;
 		setTimeout(function () {
 			btn.classList.remove('copy-success');
 			let btnAfter = btn.innerHTML;
 			btnAfter = btnAfter.replace(
-				attributes.copySuccessText,
-				attributes.copyBtnText
+				attributes.successText,
+				attributes.text
 			);
 			btn.innerHTML = btnAfter;
 		}, 3000);

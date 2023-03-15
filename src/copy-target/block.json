@@ -1,0 +1,28 @@
+{
+	"apiVersion": 2,
+	"name": "vk-copy-inner-block/copy-target",
+	"category": "vk-blocks-cat",
+	"title": "コピーターゲット",
+	"description": "コピー対象のブロック",
+	"parent": ["vk-copy-inner-block/copy-inner"],
+	"supports": {
+		"className": true,
+		"spacing": {
+			"padding": true
+		},
+		"__experimentalBorder": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true,
+			"__experimentalDefaultControls": {
+				"color": true,
+				"radius": true,
+				"style": true,
+				"width": true
+			}
+		},
+		"reusable": false
+	},
+	"editorScript": "file:./index.js"
+}

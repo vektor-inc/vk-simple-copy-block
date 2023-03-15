@@ -8,9 +8,16 @@
 add_action(
 	'init',
 	function () {
-		register_block_type(
-			VK_COPY_INNER_BLOCK_DIR_PATH . 'build/'
+		$blocks = array(
+			'copy-inner',
+			'copy-target',
+			'copy-button'
 		);
+		foreach ( $blocks as $block ) {
+			register_block_type(
+				VK_COPY_INNER_BLOCK_DIR_PATH . 'build/' . $block . '/',
+			);
+		}
 	}
 );
 
@@ -56,10 +63,13 @@ function vk_copy_inner_block_render( $block_content, $block ) {
 
 	$pattern = '@
 	<!--\s*wp:vk-copy-inner-block/copy-inner\s*{"blockId":"(?<block_id>[a-z0-9-]+)"(.*?)}\s*-->\s*
-	<div\s*class="wp-block-vk-copy-inner-block-copy-inner(.*?)"><div\s*class="vk-copy-inner-inner-blocks-wrapper">(?<inner_text>[\s\S]*?)</div>\s*
-	<div\s*class="vk-copy-inner-button-wrapper"><div\s*class="vk-copy-inner-button"\s*data-vk-copy-inner-block="(.*?)">
+	<div\s*class="wp-block-vk-copy-inner-block-copy-inner(.*?)"><!--\s*wp:vk-copy-inner-block/copy-target(.*?)-->\s*
+	<div\s*class="wp-block-vk-copy-inner-block-copy-target(.*?)"(.*?)>(?<inner_text>[\s\S]*?)</div>\s*
 	.+?\s*
-	</div></div></div>\s*
+	<!--\s*wp:vk-copy-inner-block/copy-button(.*?)-->\s*
+	<div\s*class="wp-block-vk-copy-inner-block-copy-button(.*?)">\s*
+	.+?\s*
+	<!--\s*/wp:vk-copy-inner-block/copy-button\s*--></div>\s*
 	<!--\s*/wp:vk-copy-inner-block/copy-inner\s*-->
 	@x';
 
@@ -78,7 +88,8 @@ function vk_copy_inner_block_render( $block_content, $block ) {
 
 	if ( ! empty( $array[ $block_id ] ) ) {
 		wp_enqueue_script( 'clipboard' );
-		$block_content = str_replace( '<div class="vk-copy-inner-button"', '<div data-clipboard-text="' . esc_attr( htmlentities( $array[ $block_id ], ENT_COMPAT, 'UTF-8' ) ) . '" class="vk-copy-inner-button"', $block_content );
+		$raw_block_content = htmlentities( $array[ $block_id ] );
+		$block_content = str_replace( '<div class="vk-copy-inner-button', '<div data-clipboard-text="' . esc_attr( $raw_block_content ) . '" class="vk-copy-inner-button', $block_content );
 		return $block_content;
 	}
 }

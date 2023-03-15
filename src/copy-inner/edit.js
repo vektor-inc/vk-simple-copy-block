@@ -6,18 +6,14 @@ import {
 	useBlockProps,
 	store as blockEditorStore,
 	Warning,
-	InspectorControls,
 } from '@wordpress/block-editor';
-import { useEffect, RawHTML } from '@wordpress/element';
+import { useEffect } from '@wordpress/element';
 import {
 	store as blocksStore,
-	getBlockTypes,
-	hasBlockSupport,
 	isReusableBlock,
 	isTemplatePart,
 } from '@wordpress/blocks';
 import { useSelect } from '@wordpress/data';
-import { TextControl, PanelBody } from '@wordpress/components';
 
 /**
  * Internal dependencies
@@ -25,10 +21,7 @@ import { TextControl, PanelBody } from '@wordpress/components';
 import './editor.scss';
 
 export default function InnerCopyEdit(props) {
-	const { attributes, setAttributes, clientId } = props;
-	const { copyBtnText, copySuccessText } = attributes;
-	const defaultCopyBtnText = 'コピーする';
-	const defaultCopySuccessText = 'コピー完了';
+	const { setAttributes, clientId } = props;
 
 	/**
 	 * isParentsSynced 親ブロックに再利用ブロックが存在するか
@@ -68,45 +61,17 @@ export default function InnerCopyEdit(props) {
 		}
 	}, [clientId, setAttributes, isParentsSynced]);
 
-	// インナーブロックで許可するブロック vk-copy-inner-blockは除く
-	const allowBlockTypes = [];
-	getBlockTypes().forEach((blockType) => {
-		if (hasBlockSupport(blockType, 'inserter', true) && !blockType.parent) {
-			allowBlockTypes.push(blockType);
-		}
-	});
-	const AllBlockName = allowBlockTypes.map((blockType) => blockType.name);
-	const ALLOWED_BLOCKS = AllBlockName.filter(
-		(item) => !item.match(/vk-copy-inner-block/)
-	);
-
-	const dataAttribute = {
-		copyBtnText: !!copyBtnText ? copyBtnText : defaultCopyBtnText,
-		copySuccessText: !!copySuccessText
-			? copySuccessText
-			: defaultCopySuccessText,
-	};
+	const ALLOWED_BLOCKS = [
+		'vk-copy-inner-block/copy-target',
+		'vk-copy-inner-block/copy-button',
+	];
+	const TEMPLATE = [
+		['vk-copy-inner-block/copy-target'],
+		['vk-copy-inner-block/copy-button'],
+	];
 
 	return (
 		<>
-			<InspectorControls>
-				<PanelBody title="コピーインナーブロック設定">
-					<TextControl
-						label="コピーボタンテキスト"
-						value={!!copyBtnText ? copyBtnText : ''}
-						onChange={(value) => {
-							setAttributes({ copyBtnText: value });
-						}}
-					/>
-					<TextControl
-						label="コピー完了テキスト"
-						value={!!copySuccessText ? copySuccessText : ''}
-						onChange={(value) => {
-							setAttributes({ copySuccessText: value });
-						}}
-					/>
-				</PanelBody>
-			</InspectorControls>
 			<div {...useBlockProps()}>
 				{isParentsSynced && (
 					<Warning>
@@ -118,22 +83,11 @@ export default function InnerCopyEdit(props) {
 						インナーコピーブロックの中にインナーコピーブロックを含めることはできません。削除してください。
 					</Warning>
 				)}
-				<div className="vk-copy-inner-inner-blocks-wrapper">
-					<InnerBlocks
-						allowedBlocks={ALLOWED_BLOCKS}
-						templateLock={false}
-					/>
-				</div>
-				<div className="vk-copy-inner-button-wrapper">
-					<div
-						className="vk-copy-inner-button"
-						data-vk-copy-inner-block={JSON.stringify(dataAttribute)}
-					>
-						<RawHTML>
-							{!!copyBtnText ? copyBtnText : defaultCopyBtnText}
-						</RawHTML>
-					</div>
-				</div>
+				<InnerBlocks
+					template={TEMPLATE}
+					allowedBlocks={ALLOWED_BLOCKS}
+					templateLock="all"
+				/>
 			</div>
 		</>
 	);
