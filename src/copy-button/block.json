@@ -11,6 +11,9 @@
 		},
 		"successText": {
 			"type": "string"
+		},
+		"buttonAlign": {
+			"type": "string"
 		}
 	},
 	"supports": {
@@ -22,6 +25,9 @@
 				"background": true,
 				"text": true
 			}
+		},
+		"typography": {
+			"fontSize": true
 		},
 		"reusable": false
 	},

@@ -8,7 +8,10 @@
 	"supports": {
 		"className": true,
 		"spacing": {
-			"padding": true
+			"padding": true,
+			"__experimentalDefaultControls": {
+				"padding": true
+			}
 		},
 		"__experimentalBorder": {
 			"color": true,

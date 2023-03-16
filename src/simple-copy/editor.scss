@@ -4,7 +4,7 @@
 		min-height: 3em;
 	}
 
-	.wp-block-vk-simple-copy-block-copy-target:not(.has-border-color) {
+	.wp-block-vk-simple-copy-block-copy-target:not([style*="border-"]) {
 		border: 1px dotted #ccc;
 	}
 

@@ -5,11 +5,14 @@
 		background-color: var(--wp--preset--color--vk-color-primary, #337ab7);
 		color: #fff;
 		display: inline-block;
-		user-select: none;
-		border: 1px solid transparent;
 		padding: 0.5rem 1.5rem;
 		font-size: 14px;
-		line-height: 1.2;
 		border-radius: var(--vk-size-radius);
+	}
+
+	.has-custom-font-size {
+		.vk-simple-copy-button {
+			font-size: inherit;
+		}
 	}
 }

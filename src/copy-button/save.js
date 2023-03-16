@@ -13,9 +13,8 @@ import {
 import { RawHTML } from '@wordpress/element';
 
 export default function save(props) {
-	const { attributes } = props;
-	const { text, successText } = attributes;
-	const colorProps = getColorClassesAndStyles(attributes);
+	const { attributes, className } = props;
+	const { text, successText, buttonAlign, fontSize, style } = attributes;
 	const defaultText = 'コピーする';
 	const defaultSuccessText = 'コピー完了';
 
@@ -24,8 +23,21 @@ export default function save(props) {
 		successText: !!successText ? successText : defaultSuccessText,
 	};
 
+	const colorProps = getColorClassesAndStyles(attributes);
+
+	const wrapperClasses = classnames(className, {
+		[`has-custom-font-size`]: fontSize || style?.typography?.fontSize,
+	});
+
 	return (
-		<div {...useBlockProps.save()}>
+		<div
+			{...useBlockProps.save({ className: wrapperClasses })}
+			style={{
+				display: buttonAlign ? 'flex' : undefined,
+				justifyContent: buttonAlign,
+				fontSize: style?.typography?.fontSize,
+			}}
+		>
 			<div
 				className={classnames(
 					'vk-simple-copy-button',
