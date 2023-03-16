@@ -72,11 +72,11 @@ export default function InnerCopyEdit(props) {
 
 	const blockProps = useBlockProps();
 
-	const innerBlocksProps = useInnerBlocksProps( blockProps, {
+	const innerBlocksProps = useInnerBlocksProps(blockProps, {
 		allowedBlocks: ALLOWED_BLOCKS,
 		template: TEMPLATE,
-		templateLock: "all",
-	} );
+		templateLock: 'all',
+	});
 
 	return (
 		<>
@@ -90,7 +90,7 @@ export default function InnerCopyEdit(props) {
 					シンプルコピーブロックの中にシンプルコピーブロックを含めることはできません。削除してください。
 				</Warning>
 			)}
-			<div { ...innerBlocksProps } />
+			<div {...innerBlocksProps} />
 		</>
 	);
 }

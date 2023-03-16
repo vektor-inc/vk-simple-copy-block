@@ -19,14 +19,14 @@ export default function Edit() {
 
 	const blockProps = useBlockProps();
 
-	const innerBlocksProps = useInnerBlocksProps( blockProps, {
+	const innerBlocksProps = useInnerBlocksProps(blockProps, {
 		allowedBlocks: ALLOWED_BLOCKS,
 		templateLock: false,
-	} );
+	});
 
 	return (
 		<>
-			<div { ...innerBlocksProps } />
+			<div {...innerBlocksProps} />
 		</>
 	);
 }

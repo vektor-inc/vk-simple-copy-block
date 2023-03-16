@@ -61,6 +61,26 @@ function vk_simple_copy_block_render( $block_content, $block ) {
 		return $block_content;
 	}
 
+	$array = vk_simple_copy_block_get_copy_target_block_contents();
+	if ( empty( $array ) ) {
+		return $block_content;
+	}
+
+	if ( ! empty( $array[ $block_id ] ) ) {
+		$raw_block_content = vk_simple_copy_block_decode_pattern_content( $array[ $block_id ] );
+		$input_block_data  = '<input type="hidden" value="' . rawurlencode( wp_json_encode( $raw_block_content ) ) . '" />';
+		$block_content     = str_replace( '<div class="vk-simple-copy-button', $input_block_data . '<div class="vk-simple-copy-button', $block_content );
+		return $block_content;
+	}
+}
+add_filter( 'render_block_vk-simple-copy-block/simple-copy', 'vk_simple_copy_block_render', 10, 2 );
+
+/**
+ * Get_the_contentからblock_idとinner_textの配列を作る
+ *
+ * @return array
+ */
+function vk_simple_copy_block_get_copy_target_block_contents() {
 	$pattern = '@
 	<!--\s*wp:vk-simple-copy-block/simple-copy\s*{"blockId":"(?<block_id>[a-z0-9-]+)"(.*?)}\s*-->\s*
 	<div\s*class="wp-block-vk-simple-copy-block-simple-copy(.*?)"><!--\s*wp:vk-simple-copy-block/copy-target(.*?)-->\s*
@@ -82,16 +102,25 @@ function vk_simple_copy_block_render( $block_content, $block ) {
 		);
 		$array     = array_merge( $array, $add_array );
 	}
-	if ( empty( $array ) ) {
-		return $block_content;
-	}
-
-	if ( ! empty( $array[ $block_id ] ) ) {
-		wp_enqueue_script( 'clipboard' );
-		$raw_block_content = htmlentities( $array[ $block_id ] , ENT_COMPAT, 'UTF-8');
-		$block_content     = str_replace( '<div class="vk-simple-copy-button', '<div data-clipboard-text="' . esc_attr( $raw_block_content ) . '" class="vk-simple-copy-button', $block_content );
-		return $block_content;
-	}
+	return $array;
 }
-add_filter( 'render_block_vk-simple-copy-block/simple-copy', 'vk_simple_copy_block_render', 10, 2 );
 
+/**
+ * Process post content, replacing broken encoding & removing refs.
+ *
+ * @see https://github.com/WordPress/pattern-directory/blob/5847378beaafbeea1d34a5715f4e66f5b2ec9155/public_html/wp-content/plugins/pattern-directory/includes/pattern-post-type.php#L807-L820
+ *
+ * Some image URLs have &s, which are double-encoded and sanitized to become malformed,
+ * for example, `https://img.rawpixel.com/s3fs-private/rawpixel_images/website_content/a010-markuss-0964.jpg?w=1200\u0026amp;h=1200\u0026amp;fit=clip\u0026amp;crop=default\u0026amp;dpr=1\u0026amp;q=75\u0026amp;vib=3\u0026amp;con=3\u0026amp;usm=15\u0026amp;cs=srgb\u0026amp;bg=F4F4F3\u0026amp;ixlib=js-2.2.1\u0026amp;s=7d494bd5db8acc2a34321c15ed18ace5`.
+ *
+ * @param string $content The raw post content.
+ *
+ * @return string
+ */
+function vk_simple_copy_block_decode_pattern_content( $content ) {
+	// Sometimes the initial `\` is missing, so look for both versions.
+	$content = str_replace( array( '\u0026amp;', 'u0026amp;' ), '&', $content );
+	// Remove `ref` from all content.
+	$content = preg_replace( '/"ref":\d+,?/', '', $content );
+	return $content;
+}
