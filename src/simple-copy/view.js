@@ -30,54 +30,49 @@ function copyToClipboard(stringToCopy) {
 	return success;
 }
 
+// クリックされたらcopy-successクラスを追加する。
+const onSuccess = (target) => {
+	target.classList.add('copy-success');
+	setTimeout(() => target.classList.remove('copy-success'), 3000);
+};
+
 window.addEventListener('load', function () {
-	const copyButton = document.querySelectorAll('.vk-simple-copy-button');
-	const copyButtonLoop = (i) => {
-		const handleClick = ({ target }) => {
-			// Grab the pattern markup from hidden input
-			const blockDataInput = target.previousElementSibling;
-			const content = JSON.parse(
-				decodeURIComponent(blockDataInput.value)
-			);
+	const simpleCopyButton = document.querySelectorAll(
+		'.vk-simple-copy-button'
+	);
 
-			const success = copyToClipboard(content);
+	const simpleCopyLoop = (i) => {
+		simpleCopyButton[i].addEventListener(
+			'click',
+			() => {
+				const handleClick = (target) => {
+					// Grab the pattern markup from hidden input
+					const blockDataInput = target.querySelector(
+						'input[type="hidden"]'
+					);
+					const content = JSON.parse(
+						decodeURIComponent(blockDataInput.value)
+					);
 
-			// Make sure we reset focus in case it was lost in the 'copy' command.
-			target.focus();
+					const success = copyToClipboard(content);
 
-			if (success) {
-				onSuccess(target);
-			} else {
-				// TODO Handle error case
-			}
-		};
+					// Make sure we reset focus in case it was lost in the 'copy' command.
+					target.focus();
 
-		copyButton[i].onclick = handleClick;
+					if (success) {
+						onSuccess(target);
+					} else {
+						// TODO Handle error case
+					}
+				};
 
-		const onSuccess = (target) => {
-			target.classList.add('copy-success');
-			const attributes = JSON.parse(
-				target.getAttribute('data-vk-simple-copy-block')
-			);
-			let btnBefore = target.innerHTML;
-			btnBefore = btnBefore.replace(
-				attributes.text,
-				attributes.successText
-			);
-			target.innerHTML = btnBefore;
-			setTimeout(function () {
-				target.classList.remove('copy-success');
-				let btnAfter = target.innerHTML;
-				btnAfter = btnAfter.replace(
-					attributes.successText,
-					attributes.text
-				);
-				target.innerHTML = btnAfter;
-			}, 3000);
-		};
+				handleClick(simpleCopyButton[i]);
+			},
+			false
+		);
 	};
 
-	for (let i = 0; i < copyButton.length; i++) {
-		copyButtonLoop(i);
+	for (let i = 0; i < simpleCopyButton.length; i++) {
+		simpleCopyLoop(i);
 	}
 });

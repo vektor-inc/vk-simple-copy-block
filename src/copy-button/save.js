@@ -8,24 +8,24 @@ import classnames from 'classnames';
  */
 import {
 	useBlockProps,
+	__experimentalGetBorderClassesAndStyles as getBorderClassesAndStyles,
 	__experimentalGetColorClassesAndStyles as getColorClassesAndStyles,
+	__experimentalGetSpacingClassesAndStyles as getSpacingClassesAndStyles,
 } from '@wordpress/block-editor';
 import { RawHTML } from '@wordpress/element';
 
 export default function save(props) {
 	const { attributes, className } = props;
-	const { text, successText, buttonAlign, fontSize, style } = attributes;
+	const { text, successText, fontSize, style, textAlign, width } = attributes;
 	const defaultText = 'コピーする';
 	const defaultSuccessText = 'コピー完了';
 
-	const dataAttribute = {
-		text: !!text ? text : defaultText,
-		successText: !!successText ? successText : defaultSuccessText,
-	};
-
+	const borderProps = getBorderClassesAndStyles(attributes);
 	const colorProps = getColorClassesAndStyles(attributes);
+	const spacingProps = getSpacingClassesAndStyles(attributes);
 
 	const wrapperClasses = classnames(className, {
+		[`has-custom-width`]: width,
 		[`has-custom-font-size`]: fontSize || style?.typography?.fontSize,
 	});
 
@@ -33,23 +33,35 @@ export default function save(props) {
 		<div
 			{...useBlockProps.save({ className: wrapperClasses })}
 			style={{
-				display: buttonAlign ? 'flex' : undefined,
-				justifyContent: buttonAlign,
 				fontSize: style?.typography?.fontSize,
+				width: width === undefined ? undefined : `${width}%`,
 			}}
 		>
-			<div
+			<button
 				className={classnames(
 					'vk-simple-copy-button',
-					colorProps.className
+					colorProps.className,
+					borderProps.className,
+					{
+						[`has-text-align-${textAlign}`]: textAlign,
+					}
 				)}
 				style={{
+					...borderProps.style,
 					...colorProps.style,
+					...spacingProps.style,
 				}}
-				data-vk-simple-copy-block={JSON.stringify(dataAttribute)}
 			>
-				<RawHTML>{!!text ? text : defaultText}</RawHTML>
-			</div>
+				<input type="hidden" />
+				<span className="vk-simple-copy-button-do">
+					<RawHTML>{!!text ? text : defaultText}</RawHTML>
+				</span>
+				<span className="vk-simple-copy-button-done">
+					<RawHTML>
+						{!!successText ? successText : defaultSuccessText}
+					</RawHTML>
+				</span>
+			</button>
 		</div>
 	);
 }

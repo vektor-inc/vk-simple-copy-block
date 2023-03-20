@@ -63,11 +63,11 @@ export default function InnerCopyEdit(props) {
 
 	const ALLOWED_BLOCKS = [
 		'vk-simple-copy-block/copy-target',
-		'vk-simple-copy-block/copy-button',
+		'vk-simple-copy-block/copy-button-wrap',
 	];
 	const TEMPLATE = [
 		['vk-simple-copy-block/copy-target'],
-		['vk-simple-copy-block/copy-button'],
+		['vk-simple-copy-block/copy-button-wrap'],
 	];
 
 	const blockProps = useBlockProps();

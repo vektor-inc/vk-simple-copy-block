@@ -25,30 +25,34 @@ class SimpleCopyTest extends WP_UnitTestCase {
 			<p>コア静的ブロック</p>
 			<!-- /wp:paragraph -->
 
-			<!-- wp:vk-simple-copy-block/simple-copy {"blockId":"b3c17ebe-5010-4d3b-bebc-90e280e3efbb"} -->
+			<!-- wp:vk-simple-copy-block/simple-copy {"blockId":"6e8c1c5d-4fe2-428f-85c6-bafd8d73bf34"} -->
 			<div class="wp-block-vk-simple-copy-block-simple-copy"><!-- wp:vk-simple-copy-block/copy-target -->
 			<div class="wp-block-vk-simple-copy-block-copy-target"><!-- wp:paragraph {"backgroundColor":"black","textColor":"white"} -->
 			<p class="has-white-color has-black-background-color has-text-color has-background">sample text</p>
 			<!-- /wp:paragraph --></div>
 			<!-- /wp:vk-simple-copy-block/copy-target -->
 
-			<!-- wp:vk-simple-copy-block/copy-button -->
-			<div class="wp-block-vk-simple-copy-block-copy-button"><div class="vk-simple-copy-button" data-vk-simple-copy-block="{&quot;text&quot;:&quot;コピーする&quot;,&quot;successText&quot;:&quot;コピー完了&quot;}">コピーする</div></div>
+			<!-- wp:vk-simple-copy-block/copy-button-wrap -->
+			<div class="wp-block-vk-simple-copy-block-copy-button-wrap"><!-- wp:vk-simple-copy-block/copy-button -->
+			<div class="wp-block-vk-simple-copy-block-copy-button"><button class="vk-simple-copy-button"><input type="hidden"/><span class="vk-simple-copy-button-do">コピーする</span><span class="vk-simple-copy-button-done">コピー完了</span></button></div>
 			<!-- /wp:vk-simple-copy-block/copy-button --></div>
+			<!-- /wp:vk-simple-copy-block/copy-button-wrap --></div>
 			<!-- /wp:vk-simple-copy-block/simple-copy -->
 
-			<!-- wp:vk-simple-copy-block/simple-copy {"blockId":"69109f35-8179-4195-9d5e-55b1bf4755c9"} -->
+			<!-- wp:vk-simple-copy-block/simple-copy {"blockId":"4ece45a5-5ab8-4e5d-a164-868817b1ead0"} -->
 			<div class="wp-block-vk-simple-copy-block-simple-copy"><!-- wp:vk-simple-copy-block/copy-target -->
-			<div class="wp-block-vk-simple-copy-block-copy-target"><!-- wp:vk-blocks/slider {"blockId":"aaf938a3-01df-4c9c-88b2-44ab2ac0864c"} -->
-			<div class="wp-block-vk-blocks-slider swiper swiper-container vk_slider vk_slider_aaf938a3-01df-4c9c-88b2-44ab2ac0864c" data-vkb-slider="{&quot;autoPlay&quot;:true,&quot;autoPlayStop&quot;:false,&quot;autoPlayDelay&quot;:2500,&quot;pagination&quot;:&quot;bullets&quot;,&quot;blockId&quot;:&quot;aaf938a3-01df-4c9c-88b2-44ab2ac0864c&quot;,&quot;width&quot;:&quot;&quot;,&quot;loop&quot;:true,&quot;effect&quot;:&quot;slide&quot;,&quot;speed&quot;:500,&quot;slidesPerViewMobile&quot;:1,&quot;slidesPerViewTablet&quot;:1,&quot;slidesPerViewPC&quot;:1,&quot;slidesPerGroup&quot;:&quot;one-by-one&quot;}"><div class="swiper-wrapper"><!-- wp:vk-blocks/slider-item {"blockId":"7b55ae46-880f-4466-bc1e-b4d6818c0fa8"} -->
-			<div class="wp-block-vk-blocks-slider-item vk_slider_item swiper-slide vk_valign-center vk_slider_item-7b55ae46-880f-4466-bc1e-b4d6818c0fa8  vk_slider_item-paddingLR-none vk_slider_item-paddingVertical-none"><div class="vk_slider_item-background-area has-background-dim has-background-dim-5"></div><div class="vk_slider_item_container container"></div></div>
+			<div class="wp-block-vk-simple-copy-block-copy-target"><!-- wp:vk-blocks/slider {"blockId":"bf8bf5f1-b2da-4cdd-bca1-8aebf36d8553"} -->
+			<div class="wp-block-vk-blocks-slider swiper swiper-container vk_slider vk_slider_bf8bf5f1-b2da-4cdd-bca1-8aebf36d8553" data-vkb-slider="{&quot;autoPlay&quot;:true,&quot;autoPlayStop&quot;:false,&quot;autoPlayDelay&quot;:2500,&quot;pagination&quot;:&quot;bullets&quot;,&quot;blockId&quot;:&quot;bf8bf5f1-b2da-4cdd-bca1-8aebf36d8553&quot;,&quot;width&quot;:&quot;&quot;,&quot;loop&quot;:true,&quot;effect&quot;:&quot;slide&quot;,&quot;speed&quot;:500,&quot;slidesPerViewMobile&quot;:1,&quot;slidesPerViewTablet&quot;:1,&quot;slidesPerViewPC&quot;:1,&quot;slidesPerGroup&quot;:&quot;one-by-one&quot;}"><div class="swiper-wrapper"><!-- wp:vk-blocks/slider-item {"blockId":"da7d7911-82ed-4a48-85ce-1dcea3fa7c65"} -->
+			<div class="wp-block-vk-blocks-slider-item vk_slider_item swiper-slide vk_valign-center vk_slider_item-da7d7911-82ed-4a48-85ce-1dcea3fa7c65  vk_slider_item-paddingLR-none vk_slider_item-paddingVertical-none"><div class="vk_slider_item-background-area has-background-dim has-background-dim-5"></div><div class="vk_slider_item_container container"></div></div>
 			<!-- /wp:vk-blocks/slider-item --></div><div class="swiper-button-next swiper-button-mobile-bottom"></div><div class="swiper-button-prev swiper-button-mobile-bottom"></div><div class="swiper-pagination swiper-pagination-bullets"></div></div>
 			<!-- /wp:vk-blocks/slider --></div>
 			<!-- /wp:vk-simple-copy-block/copy-target -->
 
-			<!-- wp:vk-simple-copy-block/copy-button -->
-			<div class="wp-block-vk-simple-copy-block-copy-button"><div class="vk-simple-copy-button" data-vk-simple-copy-block="{&quot;text&quot;:&quot;コピーする&quot;,&quot;successText&quot;:&quot;コピー完了&quot;}">コピーする</div></div>
+			<!-- wp:vk-simple-copy-block/copy-button-wrap -->
+			<div class="wp-block-vk-simple-copy-block-copy-button-wrap"><!-- wp:vk-simple-copy-block/copy-button -->
+			<div class="wp-block-vk-simple-copy-block-copy-button"><button class="vk-simple-copy-button"><input type="hidden"/><span class="vk-simple-copy-button-do">コピーする</span><span class="vk-simple-copy-button-done">コピー完了</span></button></div>
 			<!-- /wp:vk-simple-copy-block/copy-button --></div>
+			<!-- /wp:vk-simple-copy-block/copy-button-wrap --></div>
 			<!-- /wp:vk-simple-copy-block/simple-copy -->
 			',
 			'post_status'  => 'publish',
@@ -71,12 +75,12 @@ class SimpleCopyTest extends WP_UnitTestCase {
 	public function test_get_copy_target_block_contents() {
 
 		$correct = array(
-			'b3c17ebe-5010-4d3b-bebc-90e280e3efbb' => '<!-- wp:paragraph {"backgroundColor":"black","textColor":"white"} -->
+			'6e8c1c5d-4fe2-428f-85c6-bafd8d73bf34' => '<!-- wp:paragraph {"backgroundColor":"black","textColor":"white"} -->
 			<p class="has-white-color has-black-background-color has-text-color has-background">sample text</p>
 			<!-- /wp:paragraph -->',
-			'69109f35-8179-4195-9d5e-55b1bf4755c9' => '<!-- wp:vk-blocks/slider {"blockId":"aaf938a3-01df-4c9c-88b2-44ab2ac0864c"} -->
-			<div class="wp-block-vk-blocks-slider swiper swiper-container vk_slider vk_slider_aaf938a3-01df-4c9c-88b2-44ab2ac0864c" data-vkb-slider="{&quot;autoPlay&quot;:true,&quot;autoPlayStop&quot;:false,&quot;autoPlayDelay&quot;:2500,&quot;pagination&quot;:&quot;bullets&quot;,&quot;blockId&quot;:&quot;aaf938a3-01df-4c9c-88b2-44ab2ac0864c&quot;,&quot;width&quot;:&quot;&quot;,&quot;loop&quot;:true,&quot;effect&quot;:&quot;slide&quot;,&quot;speed&quot;:500,&quot;slidesPerViewMobile&quot;:1,&quot;slidesPerViewTablet&quot;:1,&quot;slidesPerViewPC&quot;:1,&quot;slidesPerGroup&quot;:&quot;one-by-one&quot;}"><div class="swiper-wrapper"><!-- wp:vk-blocks/slider-item {"blockId":"7b55ae46-880f-4466-bc1e-b4d6818c0fa8"} -->
-			<div class="wp-block-vk-blocks-slider-item vk_slider_item swiper-slide vk_valign-center vk_slider_item-7b55ae46-880f-4466-bc1e-b4d6818c0fa8  vk_slider_item-paddingLR-none vk_slider_item-paddingVertical-none"><div class="vk_slider_item-background-area has-background-dim has-background-dim-5"></div><div class="vk_slider_item_container container"></div></div>
+			'4ece45a5-5ab8-4e5d-a164-868817b1ead0' => '<!-- wp:vk-blocks/slider {"blockId":"bf8bf5f1-b2da-4cdd-bca1-8aebf36d8553"} -->
+			<div class="wp-block-vk-blocks-slider swiper swiper-container vk_slider vk_slider_bf8bf5f1-b2da-4cdd-bca1-8aebf36d8553" data-vkb-slider="{&quot;autoPlay&quot;:true,&quot;autoPlayStop&quot;:false,&quot;autoPlayDelay&quot;:2500,&quot;pagination&quot;:&quot;bullets&quot;,&quot;blockId&quot;:&quot;bf8bf5f1-b2da-4cdd-bca1-8aebf36d8553&quot;,&quot;width&quot;:&quot;&quot;,&quot;loop&quot;:true,&quot;effect&quot;:&quot;slide&quot;,&quot;speed&quot;:500,&quot;slidesPerViewMobile&quot;:1,&quot;slidesPerViewTablet&quot;:1,&quot;slidesPerViewPC&quot;:1,&quot;slidesPerGroup&quot;:&quot;one-by-one&quot;}"><div class="swiper-wrapper"><!-- wp:vk-blocks/slider-item {"blockId":"da7d7911-82ed-4a48-85ce-1dcea3fa7c65"} -->
+			<div class="wp-block-vk-blocks-slider-item vk_slider_item swiper-slide vk_valign-center vk_slider_item-da7d7911-82ed-4a48-85ce-1dcea3fa7c65  vk_slider_item-paddingLR-none vk_slider_item-paddingVertical-none"><div class="vk_slider_item-background-area has-background-dim has-background-dim-5"></div><div class="vk_slider_item_container container"></div></div>
 			<!-- /wp:vk-blocks/slider-item --></div><div class="swiper-button-next swiper-button-mobile-bottom"></div><div class="swiper-button-prev swiper-button-mobile-bottom"></div><div class="swiper-pagination swiper-pagination-bullets"></div></div>
 			<!-- /wp:vk-blocks/slider -->'
 		);

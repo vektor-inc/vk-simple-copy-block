@@ -1,0 +1,24 @@
+{
+	"apiVersion": 2,
+	"name": "vk-simple-copy-block/copy-button-wrap",
+	"category": "vk-blocks-cat",
+	"title": "コピーボタン",
+	"description": "コピーボタン",
+	"parent": ["vk-simple-copy-block/simple-copy"],
+	"attributes": {
+		"buttonAlign": {
+			"type": "string"
+		}
+	},
+	"supports": {
+		"className": true,
+		"spacing": {
+			"margin": ["top"],
+			"__experimentalDefaultControls": {
+				"margin": true
+			}
+		},
+		"reusable": false
+	},
+	"editorScript": "file:./index.js"
+}

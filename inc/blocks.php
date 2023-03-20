@@ -11,6 +11,7 @@ add_action(
 		$blocks = array(
 			'simple-copy',
 			'copy-target',
+			'copy-button-wrap',
 			'copy-button',
 		);
 		foreach ( $blocks as $block ) {
@@ -68,8 +69,7 @@ function vk_simple_copy_block_render( $block_content, $block ) {
 
 	if ( ! empty( $array[ $block_id ] ) ) {
 		$raw_block_content = vk_simple_copy_block_decode_pattern_content( $array[ $block_id ] );
-		$input_block_data  = '<input type="hidden" value="' . rawurlencode( wp_json_encode( $raw_block_content ) ) . '" />';
-		$block_content     = str_replace( '<div class="vk-simple-copy-button', $input_block_data . '<div class="vk-simple-copy-button', $block_content );
+		$block_content     = str_replace( '<input type="hidden"/>', '<input type="hidden" value="' . rawurlencode( wp_json_encode( $raw_block_content ) ) . '" />', $block_content );
 		return $block_content;
 	}
 }
@@ -85,11 +85,12 @@ function vk_simple_copy_block_get_copy_target_block_contents() {
 	<!--\s*wp:vk-simple-copy-block/simple-copy\s*{"blockId":"(?<block_id>[a-z0-9-]+)"(.*?)}\s*-->\s*
 	<div\s*class="wp-block-vk-simple-copy-block-simple-copy(.*?)"><!--\s*wp:vk-simple-copy-block/copy-target(.*?)-->\s*
 	<div\s*class="wp-block-vk-simple-copy-block-copy-target(.*?)"(.*?)>(?<inner_text>[\s\S]*?)</div>\s*
-	.+?\s*
-	<!--\s*wp:vk-simple-copy-block/copy-button(.*?)-->\s*
-	<div\s*class="wp-block-vk-simple-copy-block-copy-button(.*?)">\s*
+	<!--\s*/wp:vk-simple-copy-block/copy-target\s*-->\s*\s*
+	<!--\s*wp:vk-simple-copy-block/copy-button-wrap(.*?)-->\s*
+	<div(.*?)class="wp-block-vk-simple-copy-block-copy-button-wrap(.*?)"><!--\s*wp:vk-simple-copy-block/copy-button(.*?)-->\s*
 	.+?\s*
 	<!--\s*/wp:vk-simple-copy-block/copy-button\s*--></div>\s*
+	<!--\s*/wp:vk-simple-copy-block/copy-button-wrap\s*--></div>\s*
 	<!--\s*/wp:vk-simple-copy-block/simple-copy\s*-->
 	@x';
 
