@@ -119,6 +119,7 @@ export default function Edit(props) {
 					width: width === undefined ? undefined : `${width}%`,
 				}}
 			>
+				<input type="hidden" />
 				<button
 					className={classnames(
 						'vk-simple-copy-button',
@@ -134,7 +135,6 @@ export default function Edit(props) {
 						...spacingProps.style,
 					}}
 				>
-					<input type="hidden" />
 					<span className="vk-simple-copy-button-do">
 						<RawHTML>{!!text ? text : defaultText}</RawHTML>
 					</span>

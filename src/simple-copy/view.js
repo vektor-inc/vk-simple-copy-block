@@ -30,49 +30,41 @@ function copyToClipboard(stringToCopy) {
 	return success;
 }
 
-// クリックされたらcopy-successクラスを追加する。
-const onSuccess = (target) => {
-	target.classList.add('copy-success');
-	setTimeout(() => target.classList.remove('copy-success'), 3000);
-};
-
 window.addEventListener('load', function () {
-	const simpleCopyButton = document.querySelectorAll(
-		'.vk-simple-copy-button'
-	);
+	const buttons = document.querySelectorAll('.vk-simple-copy-button');
 
-	const simpleCopyLoop = (i) => {
-		simpleCopyButton[i].addEventListener(
-			'click',
-			() => {
-				const handleClick = (target) => {
-					// Grab the pattern markup from hidden input
-					const blockDataInput = target.querySelector(
-						'input[type="hidden"]'
-					);
-					const content = JSON.parse(
-						decodeURIComponent(blockDataInput.value)
-					);
+	const timeoutId = [];
+	function handleClick(event) {
+		const button = event.currentTarget;
 
-					const success = copyToClipboard(content);
+		// Grab the pattern markup from hidden input
+		const blockDataInput = button.previousElementSibling;
 
-					// Make sure we reset focus in case it was lost in the 'copy' command.
-					target.focus();
+		const content = JSON.parse(decodeURIComponent(blockDataInput.value));
 
-					if (success) {
-						onSuccess(target);
-					} else {
-						// TODO Handle error case
-					}
-				};
+		const success = copyToClipboard(content);
 
-				handleClick(simpleCopyButton[i]);
-			},
-			false
-		);
-	};
+		// Make sure we reset focus in case it was lost in the 'copy' command.
+		button.focus();
 
-	for (let i = 0; i < simpleCopyButton.length; i++) {
-		simpleCopyLoop(i);
+		if (success) {
+
+			// クリックされたボタンにidを設定
+			const idx = [...document.querySelectorAll('button')].indexOf(
+				button
+			);
+			clearTimeout(timeoutId[idx]);
+			button.classList.add('copy-success');
+			timeoutId[idx] = setTimeout(() => {
+				button.classList.remove('copy-success');
+			}, 3000);
+
+		} else {
+			// TODO Handle error case
+		}
 	}
+
+	buttons.forEach((button) => {
+		button.addEventListener('click', handleClick);
+	});
 });

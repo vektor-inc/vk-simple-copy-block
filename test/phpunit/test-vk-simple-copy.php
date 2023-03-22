@@ -34,7 +34,7 @@ class SimpleCopyTest extends WP_UnitTestCase {
 
 			<!-- wp:vk-simple-copy-block/copy-button-wrap -->
 			<div class="wp-block-vk-simple-copy-block-copy-button-wrap"><!-- wp:vk-simple-copy-block/copy-button -->
-			<div class="wp-block-vk-simple-copy-block-copy-button"><button class="vk-simple-copy-button"><input type="hidden"/><span class="vk-simple-copy-button-do">コピーする</span><span class="vk-simple-copy-button-done">コピー完了</span></button></div>
+			<div class="wp-block-vk-simple-copy-block-copy-button"><input type="hidden"/><button class="vk-simple-copy-button"><span class="vk-simple-copy-button-do">コピーする</span><span class="vk-simple-copy-button-done">コピー完了</span></button></div>
 			<!-- /wp:vk-simple-copy-block/copy-button --></div>
 			<!-- /wp:vk-simple-copy-block/copy-button-wrap --></div>
 			<!-- /wp:vk-simple-copy-block/simple-copy -->
@@ -50,7 +50,7 @@ class SimpleCopyTest extends WP_UnitTestCase {
 
 			<!-- wp:vk-simple-copy-block/copy-button-wrap -->
 			<div class="wp-block-vk-simple-copy-block-copy-button-wrap"><!-- wp:vk-simple-copy-block/copy-button -->
-			<div class="wp-block-vk-simple-copy-block-copy-button"><button class="vk-simple-copy-button"><input type="hidden"/><span class="vk-simple-copy-button-do">コピーする</span><span class="vk-simple-copy-button-done">コピー完了</span></button></div>
+			<div class="wp-block-vk-simple-copy-block-copy-button"><input type="hidden"/><button class="vk-simple-copy-button"><span class="vk-simple-copy-button-do">コピーする</span><span class="vk-simple-copy-button-done">コピー完了</span></button></div>
 			<!-- /wp:vk-simple-copy-block/copy-button --></div>
 			<!-- /wp:vk-simple-copy-block/copy-button-wrap --></div>
 			<!-- /wp:vk-simple-copy-block/simple-copy -->
