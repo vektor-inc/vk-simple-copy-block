@@ -12,7 +12,7 @@
 	"supports": {
 		"className": true,
 		"spacing": {
-			"margin": [ "top", "bottom" ]
+			"margin": ["top", "bottom"]
 		},
 		"reusable": false
 	},
