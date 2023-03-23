@@ -1,6 +1,7 @@
 /**
  * WordPress dependencies
  */
+import { __ } from '@wordpress/i18n';
 import {
 	useBlockProps,
 	store as blockEditorStore,
@@ -82,12 +83,20 @@ export default function InnerCopyEdit(props) {
 		<>
 			{isParentsSynced && (
 				<Warning>
-					再利用ブロックにシンプルコピーブロックを含めることはできません。通常のブロックへ変換するか、完全に削除してください。
+					{__(
+						'再利用ブロックにシンプルコピーブロックを含めることはできません。通常のブロックへ変換するか、完全に削除してください。',
+						// 'Reusable blocks cannot contain simple copy blocks. Either convert it to a normal block or remove it completely.',
+						'vk-simple-copy-block'
+					)}
 				</Warning>
 			)}
 			{isParentsInnerCopyBlock && (
 				<Warning>
-					シンプルコピーブロックの中にシンプルコピーブロックを含めることはできません。削除してください。
+					{__(
+						'シンプルコピーブロックの中にシンプルコピーブロックを含めることはできません。削除してください。',
+						// 'Simple copy blocks cannot be contained within simple copy blocks. Please delete it.',
+						'vk-simple-copy-block'
+					)}
 				</Warning>
 			)}
 			<div {...innerBlocksProps} />

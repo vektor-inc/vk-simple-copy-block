@@ -3,7 +3,6 @@
 	"name": "vk-simple-copy-block/copy-button-wrap",
 	"category": "vk-blocks-cat",
 	"title": "コピーボタン",
-	"description": "コピーボタン",
 	"parent": ["vk-simple-copy-block/simple-copy"],
 	"attributes": {
 		"buttonAlign": {

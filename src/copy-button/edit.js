@@ -25,8 +25,16 @@ import { useSelect, useDispatch } from '@wordpress/data';
 export default function Edit(props) {
 	const { attributes, setAttributes, clientId } = props;
 	const { text, successText, textAlign, width } = attributes;
-	const defaultText = 'コピーする';
-	const defaultSuccessText = 'コピー完了';
+	const defaultText = __(
+		'コピーする',
+		// 'Copy',
+		'vk-simple-copy-block'
+	);
+	const defaultSuccessText = __(
+		'コピー完了',
+		// 'Copied',
+		'vk-simple-copy-block'
+	);
 
 	const { rootAttributes, rootClientId } = useSelect(
 		(select) => {
@@ -75,23 +83,41 @@ export default function Edit(props) {
 				/>
 			</BlockControls>
 			<InspectorControls>
-				<PanelBody title="コピーボタン設定">
+				<PanelBody
+					title={__(
+						'コピーボタン設定',
+						// 'Copy button setting',
+						'vk-simple-copy-block'
+					)}
+				>
 					<TextControl
-						label="コピーボタンテキスト"
+						label={__(
+							'コピーボタンテキスト',
+							// 'Copy button Text',
+							'vk-simple-copy-block'
+						)}
 						value={!!text ? text : ''}
 						onChange={(value) => {
 							setAttributes({ text: value });
 						}}
 					/>
 					<TextControl
-						label="コピー完了テキスト"
+						label={__(
+							'コピー完了テキスト',
+							// 'Copy complete Text',
+							'vk-simple-copy-block'
+						)}
 						value={!!successText ? successText : ''}
 						onChange={(value) => {
 							setAttributes({ successText: value });
 						}}
 					/>
 					<RangeControl
-						label={__('幅の設定 (%)')}
+						label={__(
+							'幅の設定 (%)',
+							// 'Width settings (%)',
+							'vk-simple-copy-block'
+						)}
 						value={width}
 						onChange={(value) => {
 							setAttributes({ width: value });

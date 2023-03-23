@@ -6,6 +6,7 @@ import classnames from 'classnames';
 /**
  * WordPress dependencies
  */
+import { __ } from '@wordpress/i18n';
 import {
 	useBlockProps,
 	__experimentalGetBorderClassesAndStyles as getBorderClassesAndStyles,
@@ -17,8 +18,16 @@ import { RawHTML } from '@wordpress/element';
 export default function save(props) {
 	const { attributes, className } = props;
 	const { text, successText, fontSize, style, textAlign, width } = attributes;
-	const defaultText = 'コピーする';
-	const defaultSuccessText = 'コピー完了';
+	const defaultText = __(
+		'コピーする',
+		// 'Copy',
+		'vk-simple-copy-block'
+	);
+	const defaultSuccessText = __(
+		'コピー完了',
+		// 'Copied',
+		'vk-simple-copy-block'
+	);
 
 	const borderProps = getBorderClassesAndStyles(attributes);
 	const colorProps = getColorClassesAndStyles(attributes);
