@@ -55,8 +55,7 @@
 				"style": true,
 				"width": true
 			}
-		},
-		"__experimentalSelector": ".wp-block-vk-simple-copy-block-copy-button .vk-simple-copy-button-caption"
+		}
 	},
 	"editorScript": "file:./index.js"
 }
