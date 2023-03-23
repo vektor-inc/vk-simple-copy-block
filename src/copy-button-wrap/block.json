@@ -12,10 +12,7 @@
 	"supports": {
 		"className": true,
 		"spacing": {
-			"margin": ["top"],
-			"__experimentalDefaultControls": {
-				"margin": true
-			}
+			"margin": [ "top", "bottom" ]
 		},
 		"reusable": false
 	},
