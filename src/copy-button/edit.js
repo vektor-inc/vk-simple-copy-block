@@ -7,6 +7,7 @@ import classnames from 'classnames';
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
+import { TextControl, PanelBody, RangeControl } from '@wordpress/components';
 import {
 	useBlockProps,
 	InspectorControls,
@@ -15,12 +16,10 @@ import {
 	JustifyContentControl,
 	__experimentalUseBorderProps as useBorderProps,
 	__experimentalUseColorProps as useColorProps,
-	getTypographyClassesAndStyles as useTypographyProps,
 	__experimentalGetSpacingClassesAndStyles as useSpacingProps,
 	store as blockEditorStore,
 } from '@wordpress/block-editor';
 import { RawHTML } from '@wordpress/element';
-import { TextControl, PanelBody, RangeControl } from '@wordpress/components';
 import { useSelect, useDispatch } from '@wordpress/data';
 
 export default function Edit(props) {
@@ -56,7 +55,6 @@ export default function Edit(props) {
 
 	const colorProps = useColorProps(attributes);
 	const borderProps = useBorderProps(attributes);
-	const typographyProps = useTypographyProps(attributes);
 	const spacingProps = useSpacingProps(attributes);
 
 	return (
@@ -106,16 +104,12 @@ export default function Edit(props) {
 			</InspectorControls>
 			<div
 				{...blockProps}
-				className={classnames(
-					blockProps.className,
-					typographyProps.className,
-					{
-						[`has-custom-width`]: width,
-						[`has-custom-font-size`]: blockProps.style.fontSize,
-					}
-				)}
+				className={classnames(blockProps.className, {
+					[`has-custom-width`]: width,
+					[`has-custom-font-size`]: blockProps.style.fontSize,
+				})}
 				style={{
-					...typographyProps.style,
+					...blockProps.style,
 					width: width === undefined ? undefined : `${width}%`,
 				}}
 			>

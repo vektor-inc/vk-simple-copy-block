@@ -8,12 +8,4 @@
 		border: 1px dotted #ccc;
 	}
 
-	.wp-block-vk-simple-copy-block-copy-button-wrap {
-
-		// Specificity needed in some themes to override editor auto block margins for the button.
-		> .wp-block-vk-simple-copy-block-copy-button.wp-block-vk-simple-copy-block-copy-button.wp-block-vk-simple-copy-block-copy-button.wp-block-vk-simple-copy-block-copy-button.wp-block-vk-simple-copy-block-copy-button {
-			margin: 0;
-		}
-	}
-
 }

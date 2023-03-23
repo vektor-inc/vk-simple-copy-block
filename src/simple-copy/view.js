@@ -48,17 +48,13 @@ window.addEventListener('load', function () {
 		button.focus();
 
 		if (success) {
-
-			// クリックされたボタンにidを設定
-			const idx = [...document.querySelectorAll('button')].indexOf(
-				button
-			);
+			// クリックされたボタンのidxを設定
+			const idx = [...buttons].indexOf(button);
 			clearTimeout(timeoutId[idx]);
 			button.classList.add('copy-success');
 			timeoutId[idx] = setTimeout(() => {
 				button.classList.remove('copy-success');
 			}, 3000);
-
 		} else {
 			// TODO Handle error case
 		}

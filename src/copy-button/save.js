@@ -23,6 +23,19 @@ export default function save(props) {
 	const borderProps = getBorderClassesAndStyles(attributes);
 	const colorProps = getColorClassesAndStyles(attributes);
 	const spacingProps = getSpacingClassesAndStyles(attributes);
+	const buttonClasses = classnames(
+		'vk-simple-copy-button',
+		colorProps.className,
+		borderProps.className,
+		{
+			[`has-text-align-${textAlign}`]: textAlign,
+		}
+	);
+	const buttonStyle = {
+		...borderProps.style,
+		...colorProps.style,
+		...spacingProps.style,
+	};
 
 	const wrapperClasses = classnames(className, {
 		[`has-custom-width`]: width,
@@ -38,21 +51,7 @@ export default function save(props) {
 			}}
 		>
 			<input type="hidden" />
-			<button
-				className={classnames(
-					'vk-simple-copy-button',
-					colorProps.className,
-					borderProps.className,
-					{
-						[`has-text-align-${textAlign}`]: textAlign,
-					}
-				)}
-				style={{
-					...borderProps.style,
-					...colorProps.style,
-					...spacingProps.style,
-				}}
-			>
+			<button className={buttonClasses} style={buttonStyle}>
 				<span className="vk-simple-copy-button-do">
 					<RawHTML>{!!text ? text : defaultText}</RawHTML>
 				</span>

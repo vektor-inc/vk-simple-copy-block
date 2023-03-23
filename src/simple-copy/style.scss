@@ -2,36 +2,19 @@
 	margin-top: 1em;
 }
 
-.wp-block-vk-simple-copy-block-copy-button {
-	display: inline-block;
-	margin: 0;
-
-	&.has-custom-width {
-		max-width: none;
-
-		.vk-simple-copy-button {
-			width: 100%;
-		}
-	}
-
-	&.has-custom-font-size {
-
-		.vk-simple-copy-button {
-			font-size: inherit;
-		}
-	}
-}
-
 .vk-simple-copy-button {
 	cursor: pointer;
-	background-color: var(--wp--preset--color--vk-color-primary, #337ab7);
-	box-sizing: border-box;
-	color: #fff;
 	display: inline-block;
-	text-align: center;
+	box-sizing: border-box;
+	background-color: var(--wp--preset--color--vk-color-primary, #337ab7);
+	color: #fff;
 	padding: 0.5rem 1.5rem;
 	font-size: 14px;
 	border-radius: var(--vk-size-radius);
+
+	&:not([class*="has-text-align"]) {
+		text-align: center;
+	}
 
 	&:not(.has-border-color) {
 		border: none;
@@ -47,5 +30,23 @@
 
 	&.copy-success .vk-simple-copy-button-done {
 		display: block;
+	}
+}
+
+.wp-block-vk-simple-copy-block-copy-button {
+
+	&.has-custom-width {
+		max-width: none;
+
+		.vk-simple-copy-button {
+			width: 100%;
+		}
+	}
+
+	&.has-custom-font-size {
+
+		.vk-simple-copy-button {
+			font-size: inherit;
+		}
 	}
 }
