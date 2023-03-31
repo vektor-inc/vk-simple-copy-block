@@ -23,10 +23,7 @@ export default function save(props) {
 
 		'vk-simple-copy-block'
 	);
-	const defaultSuccessText = __(
-		'Copied',
-		'vk-simple-copy-block'
-	);
+	const defaultSuccessText = __('Copied', 'vk-simple-copy-block');
 
 	const borderProps = getBorderClassesAndStyles(attributes);
 	const colorProps = getColorClassesAndStyles(attributes);
