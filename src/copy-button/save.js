@@ -21,6 +21,7 @@ export default function save(props) {
 	const defaultText = __(
 		'Copy',
 
+
 		'vk-simple-copy-block'
 	);
 	const defaultSuccessText = __(
