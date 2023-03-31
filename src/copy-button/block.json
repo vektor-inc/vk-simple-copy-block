@@ -2,8 +2,8 @@
 	"apiVersion": 2,
 	"name": "vk-simple-copy-block/copy-button",
 	"category": "vk-blocks-cat",
-	"title": "コピーボタン",
-	"description": "コピーターゲットブロックのコードをコピーするボタン",
+	"title": "Copy Button",
+	"description": "Button to copy the code of the copy target block.",
 	"parent": ["vk-simple-copy-block/copy-button-wrap"],
 	"attributes": {
 		"text": {

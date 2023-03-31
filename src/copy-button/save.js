@@ -19,13 +19,11 @@ export default function save(props) {
 	const { attributes, className } = props;
 	const { text, successText, fontSize, style, textAlign, width } = attributes;
 	const defaultText = __(
-		'コピーする',
-		// 'Copy',
+		'Copy',
 		'vk-simple-copy-block'
 	);
 	const defaultSuccessText = __(
-		'コピー完了',
-		// 'Copied',
+		'Copied',
 		'vk-simple-copy-block'
 	);
 

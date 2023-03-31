@@ -26,13 +26,11 @@ export default function Edit(props) {
 	const { attributes, setAttributes, clientId } = props;
 	const { text, successText, textAlign, width } = attributes;
 	const defaultText = __(
-		'コピーする',
-		// 'Copy',
+		'Copy',
 		'vk-simple-copy-block'
 	);
 	const defaultSuccessText = __(
-		'コピー完了',
-		// 'Copied',
+		'Copied',
 		'vk-simple-copy-block'
 	);
 
@@ -85,15 +83,13 @@ export default function Edit(props) {
 			<InspectorControls>
 				<PanelBody
 					title={__(
-						'コピーボタン設定',
-						// 'Copy button setting',
+						'Copy button setting',
 						'vk-simple-copy-block'
 					)}
 				>
 					<TextControl
 						label={__(
-							'コピーボタンテキスト',
-							// 'Copy button Text',
+							'Copy button Text',
 							'vk-simple-copy-block'
 						)}
 						value={!!text ? text : ''}
@@ -103,8 +99,7 @@ export default function Edit(props) {
 					/>
 					<TextControl
 						label={__(
-							'コピー完了テキスト',
-							// 'Copy complete Text',
+							'Copy complete Text',
 							'vk-simple-copy-block'
 						)}
 						value={!!successText ? successText : ''}
@@ -114,8 +109,7 @@ export default function Edit(props) {
 					/>
 					<RangeControl
 						label={__(
-							'幅の設定 (%)',
-							// 'Width settings (%)',
+							'Width settings (%)',
 							'vk-simple-copy-block'
 						)}
 						value={width}

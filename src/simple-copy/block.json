@@ -2,8 +2,8 @@
 	"apiVersion": 2,
 	"name": "vk-simple-copy-block/simple-copy",
 	"category": "vk-blocks-cat",
-	"title": "シンプルコピー",
-	"description": "コピーターゲットの中にあるブロックのコードをコピーするためのブロックです。",
+	"title": "Simple Copy",
+	"description": "A block to copy the code of the block inside the copy target.",
 	"attributes": {
 		"blockId": {
 			"type": "string"
