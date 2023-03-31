@@ -1,0 +1,61 @@
+{
+	"apiVersion": 2,
+	"name": "vk-simple-copy-block/copy-button",
+	"category": "vk-blocks-cat",
+	"title": "コピーボタン",
+	"description": "コピーターゲットブロックのコードをコピーするボタン",
+	"parent": ["vk-simple-copy-block/copy-button-wrap"],
+	"attributes": {
+		"text": {
+			"type": "string"
+		},
+		"successText": {
+			"type": "string"
+		},
+		"textAlign": {
+			"type": "string"
+		},
+		"width": {
+			"type": "number"
+		}
+	},
+	"supports": {
+		"className": true,
+		"color": {
+			"__experimentalSkipSerialization": true,
+			"gradients": true,
+			"__experimentalDefaultControls": {
+				"background": true,
+				"text": true
+			}
+		},
+		"spacing": {
+			"__experimentalSkipSerialization": true,
+			"padding": ["horizontal", "vertical"],
+			"__experimentalDefaultControls": {
+				"padding": true
+			}
+		},
+		"typography": {
+			"fontSize": true,
+			"__experimentalDefaultControls": {
+				"fontSize": true
+			}
+		},
+		"reusable": false,
+		"__experimentalBorder": {
+			"color": true,
+			"radius": true,
+			"style": true,
+			"width": true,
+			"__experimentalSkipSerialization": true,
+			"__experimentalDefaultControls": {
+				"color": true,
+				"radius": true,
+				"style": true,
+				"width": true
+			}
+		}
+	},
+	"editorScript": "file:./index.js"
+}

@@ -1,0 +1,52 @@
+.wp-block-vk-simple-copy-block-copy-button-wrap {
+	margin-top: 1em;
+}
+
+.vk-simple-copy-button {
+	cursor: pointer;
+	display: inline-block;
+	box-sizing: border-box;
+	background-color: var(--wp--preset--color--vk-color-primary, #337ab7);
+	color: #fff;
+	padding: 0.5rem 1.5rem;
+	font-size: 14px;
+	border-radius: var(--vk-size-radius);
+
+	&:not([class*="has-text-align"]) {
+		text-align: center;
+	}
+
+	&.copy-success .vk-simple-copy-button-do {
+		display: none;
+	}
+
+	.vk-simple-copy-button-done {
+		display: none;
+	}
+
+	&.copy-success .vk-simple-copy-button-done {
+		display: block;
+	}
+}
+
+:where(.vk-simple-copy-button) {
+	border: none;
+}
+
+.wp-block-vk-simple-copy-block-copy-button {
+
+	&.has-custom-width {
+		max-width: none;
+
+		.vk-simple-copy-button {
+			width: 100%;
+		}
+	}
+
+	&.has-custom-font-size {
+
+		.vk-simple-copy-button {
+			font-size: inherit;
+		}
+	}
+}

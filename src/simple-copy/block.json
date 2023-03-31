@@ -1,0 +1,21 @@
+{
+	"apiVersion": 2,
+	"name": "vk-simple-copy-block/simple-copy",
+	"category": "vk-blocks-cat",
+	"title": "シンプルコピー",
+	"description": "コピーターゲットの中にあるブロックのコードをコピーするためのブロックです。",
+	"attributes": {
+		"blockId": {
+			"type": "string"
+		}
+	},
+	"supports": {
+		"align": ["wide", "full"],
+		"className": true,
+		"reusable": false
+	},
+	"viewScript": ["file:./view.js"],
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

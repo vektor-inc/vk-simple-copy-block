@@ -1,0 +1,17 @@
+.editor-styles-wrapper {
+
+	.wp-block-vk-simple-copy-block-copy-target {
+		min-height: 3em;
+	}
+
+	.wp-block-vk-simple-copy-block-copy-target:not([style*="border-"]) {
+		border: 1px dotted #ccc;
+	}
+
+	.wp-block-vk-simple-copy-block-copy-button-wrap {
+
+		> .wp-block-vk-simple-copy-block-copy-button.wp-block-vk-simple-copy-block-copy-button.wp-block-vk-simple-copy-block-copy-button.wp-block-vk-simple-copy-block-copy-button.wp-block-vk-simple-copy-block-copy-button {
+			margin: 0;
+		}
+	}
+}
