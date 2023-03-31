@@ -25,14 +25,8 @@ import { useSelect, useDispatch } from '@wordpress/data';
 export default function Edit(props) {
 	const { attributes, setAttributes, clientId } = props;
 	const { text, successText, textAlign, width } = attributes;
-	const defaultText = __(
-		'Copy',
-		'vk-simple-copy-block'
-	);
-	const defaultSuccessText = __(
-		'Copied',
-		'vk-simple-copy-block'
-	);
+	const defaultText = __('Copy', 'vk-simple-copy-block');
+	const defaultSuccessText = __('Copied', 'vk-simple-copy-block');
 
 	const { rootAttributes, rootClientId } = useSelect(
 		(select) => {
@@ -82,36 +76,24 @@ export default function Edit(props) {
 			</BlockControls>
 			<InspectorControls>
 				<PanelBody
-					title={__(
-						'Copy button setting',
-						'vk-simple-copy-block'
-					)}
+					title={__('Copy button setting', 'vk-simple-copy-block')}
 				>
 					<TextControl
-						label={__(
-							'Copy button Text',
-							'vk-simple-copy-block'
-						)}
+						label={__('Copy button Text', 'vk-simple-copy-block')}
 						value={!!text ? text : ''}
 						onChange={(value) => {
 							setAttributes({ text: value });
 						}}
 					/>
 					<TextControl
-						label={__(
-							'Copy complete Text',
-							'vk-simple-copy-block'
-						)}
+						label={__('Copy complete Text', 'vk-simple-copy-block')}
 						value={!!successText ? successText : ''}
 						onChange={(value) => {
 							setAttributes({ successText: value });
 						}}
 					/>
 					<RangeControl
-						label={__(
-							'Width settings (%)',
-							'vk-simple-copy-block'
-						)}
+						label={__('Width settings (%)', 'vk-simple-copy-block')}
 						value={width}
 						onChange={(value) => {
 							setAttributes({ width: value });
