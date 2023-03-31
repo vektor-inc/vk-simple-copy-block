@@ -2,8 +2,8 @@
 	"apiVersion": 2,
 	"name": "vk-simple-copy-block/copy-target",
 	"category": "vk-blocks-cat",
-	"title": "コピーターゲット",
-	"description": "コピー対象のブロック",
+	"title": "Copy Target",
+	"description": "Block to be copied.",
 	"parent": ["vk-simple-copy-block/simple-copy"],
 	"supports": {
 		"className": true,
