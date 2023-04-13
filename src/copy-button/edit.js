@@ -19,7 +19,6 @@ import {
 	__experimentalGetSpacingClassesAndStyles as useSpacingProps,
 	store as blockEditorStore,
 } from '@wordpress/block-editor';
-import { RawHTML } from '@wordpress/element';
 import { useSelect, useDispatch } from '@wordpress/data';
 
 export default function Edit(props) {
@@ -132,12 +131,10 @@ export default function Edit(props) {
 					}}
 				>
 					<span className="vk-simple-copy-button-do">
-						<RawHTML>{!!text ? text : defaultText}</RawHTML>
+						{!!text ? text : defaultText}
 					</span>
 					<span className="vk-simple-copy-button-done">
-						<RawHTML>
-							{!!successText ? successText : defaultSuccessText}
-						</RawHTML>
+						{!!successText ? successText : defaultSuccessText}
 					</span>
 				</button>
 			</div>

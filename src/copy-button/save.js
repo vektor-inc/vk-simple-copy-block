@@ -13,7 +13,6 @@ import {
 	__experimentalGetColorClassesAndStyles as getColorClassesAndStyles,
 	__experimentalGetSpacingClassesAndStyles as getSpacingClassesAndStyles,
 } from '@wordpress/block-editor';
-import { RawHTML } from '@wordpress/element';
 
 export default function save(props) {
 	const { attributes, className } = props;
@@ -58,12 +57,10 @@ export default function save(props) {
 			<input type="hidden" />
 			<button className={buttonClasses} style={buttonStyle}>
 				<span className="vk-simple-copy-button-do">
-					<RawHTML>{!!text ? text : defaultText}</RawHTML>
+					{!!text ? text : defaultText}
 				</span>
 				<span className="vk-simple-copy-button-done">
-					<RawHTML>
-						{!!successText ? successText : defaultSuccessText}
-					</RawHTML>
+					{!!successText ? successText : defaultSuccessText}
 				</span>
 			</button>
 		</div>
