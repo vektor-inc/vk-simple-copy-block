@@ -5,6 +5,10 @@
  * @package vk-simple-copy-block
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 add_action(
 	'init',
 	function () {
