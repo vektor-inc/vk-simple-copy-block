@@ -75,10 +75,10 @@ export default function Edit(props) {
 			</BlockControls>
 			<InspectorControls>
 				<PanelBody
-					title={__('Copy button setting', 'vk-simple-copy-block')}
+					title={__('Copy Button setting', 'vk-simple-copy-block')}
 				>
 					<TextControl
-						label={__('Copy button Text', 'vk-simple-copy-block')}
+						label={__('Copy Button Text', 'vk-simple-copy-block')}
 						value={!!text ? text : ''}
 						onChange={(value) => {
 							setAttributes({ text: value });

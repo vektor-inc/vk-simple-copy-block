@@ -84,7 +84,7 @@ export default function InnerCopyEdit(props) {
 			{isParentsSynced && (
 				<Warning>
 					{__(
-						'Reusable blocks cannot contain simple copy blocks. Either convert it to a normal block or remove it completely.',
+						'Reusable blocks cannot contain Simple Copy blocks. Either convert it to a normal block or remove it completely.',
 						'vk-simple-copy-block'
 					)}
 				</Warning>
@@ -92,7 +92,7 @@ export default function InnerCopyEdit(props) {
 			{isParentsInnerCopyBlock && (
 				<Warning>
 					{__(
-						'Simple copy blocks cannot be contained within simple copy blocks. Please delete it.',
+						'Simple Copy blocks cannot be contained within Simple Copy blocks. Please delete it.',
 						'vk-simple-copy-block'
 					)}
 				</Warning>
