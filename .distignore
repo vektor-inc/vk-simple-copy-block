@@ -20,7 +20,7 @@ dist/
 node_modules/
 /src/
 README.md
-.eslintrc
+.eslintrc.js
 .phpcs.xml.dist
 LICENSE
 phpunit.xml.dist
