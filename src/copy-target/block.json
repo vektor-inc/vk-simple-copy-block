@@ -3,8 +3,10 @@
 	"name": "vk-simple-copy-block/copy-target",
 	"category": "vk-blocks-cat",
 	"title": "Copy Target",
-	"description": "Block to be copied.",
-	"parent": ["vk-simple-copy-block/simple-copy"],
+	"description": "The inner block of this block will be copied.",
+	"parent": [
+		"vk-simple-copy-block/simple-copy"
+	],
 	"supports": {
 		"className": true,
 		"spacing": {
