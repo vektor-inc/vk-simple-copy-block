@@ -78,14 +78,14 @@ export default function Edit(props) {
 					title={__('Settings', 'vk-simple-copy-block')}
 				>
 					<TextControl
-						label={__('Copy Button Text', 'vk-simple-copy-block')}
+						label={__('Copy Button text', 'vk-simple-copy-block')}
 						value={!!text ? text : ''}
 						onChange={(value) => {
 							setAttributes({ text: value });
 						}}
 					/>
 					<TextControl
-						label={__('Copy complete Text', 'vk-simple-copy-block')}
+						label={__('Copy complete text', 'vk-simple-copy-block')}
 						value={!!successText ? successText : ''}
 						onChange={(value) => {
 							setAttributes({ successText: value });
