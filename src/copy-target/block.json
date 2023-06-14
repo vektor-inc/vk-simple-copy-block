@@ -3,7 +3,7 @@
 	"name": "vk-simple-copy-block/copy-target",
 	"category": "vk-blocks-cat",
 	"title": "Copy Target",
-	"description": "The inner block of this block will be copied.",
+	"description": "The inner blocks of this block will be copied.",
 	"parent": [
 		"vk-simple-copy-block/simple-copy"
 	],
