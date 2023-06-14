@@ -75,7 +75,7 @@ export default function Edit(props) {
 			</BlockControls>
 			<InspectorControls>
 				<PanelBody
-					title={__('Copy Button setting', 'vk-simple-copy-block')}
+					title={__('Settings', 'vk-simple-copy-block')}
 				>
 					<TextControl
 						label={__('Copy Button Text', 'vk-simple-copy-block')}
