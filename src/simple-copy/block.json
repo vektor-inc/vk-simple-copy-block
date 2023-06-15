@@ -3,7 +3,7 @@
 	"name": "vk-simple-copy-block/simple-copy",
 	"category": "vk-blocks-cat",
 	"title": "Simple Copy",
-	"description": "A block to copy the code of the block inside the Copy Target.",
+	"description": "A block to copy the code of the block inside the copy target.",
 	"attributes": {
 		"blockId": {
 			"type": "string"

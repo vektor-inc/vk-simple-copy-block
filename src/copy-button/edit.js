@@ -78,7 +78,7 @@ export default function Edit(props) {
 					title={__('Settings', 'vk-simple-copy-block')}
 				>
 					<TextControl
-						label={__('Copy Button text', 'vk-simple-copy-block')}
+						label={__('Copy button text', 'vk-simple-copy-block')}
 						value={!!text ? text : ''}
 						onChange={(value) => {
 							setAttributes({ text: value });
