@@ -3,8 +3,8 @@
  * Plugin Name: VK Simple Copy Block
  * Plugin URI: https://github.com/vektor-inc/vk-simple-copy-block
  * Description: A block to copy the code of the block inside the copy target.
- * Version: 0.1.0.3
- * Stable tag: 0.1.0.1
+ * Version: 0.1.1.0
+ * Stable tag: 0.1.1.0
  * Requires at least: 6.1
  * Author: Vektor,Inc.
  * Author URI: https://vektor-inc.co.jp
