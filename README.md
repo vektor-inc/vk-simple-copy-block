@@ -1,7 +1,7 @@
 # VK Simple Copy Block
 
-A block to copy the code of the block inside this block.
-このブロックの中にあるブロックのコードをコピーするためのブロックです。
+A block to copy the code of the block inside the copy target.
+コピー対象のブロックのコードをコピーするブロックです。
 
 Package installation
 パッケージのインストール
