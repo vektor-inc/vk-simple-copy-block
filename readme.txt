@@ -32,6 +32,8 @@ e.g.
 
 == Changelog ==
 
+[ Fix ] Translation
+
 = 0.1.1 =
 [ Specification change ] Sentences and lower case tuning 
 [ Specification change ] Add plugins banner

@@ -4,6 +4,7 @@
 	"category": "vk-blocks-cat",
 	"title": "Simple Copy",
 	"description": "A block to copy the code of the block inside the copy target.",
+	"textdomain": "vk-simple-copy-block",
 	"attributes": {
 		"blockId": {
 			"type": "string"

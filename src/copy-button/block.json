@@ -4,6 +4,7 @@
 	"category": "vk-blocks-cat",
 	"title": "Copy Button",
 	"description": "Button to copy the code of the copy target block.",
+	"textdomain": "vk-simple-copy-block",
 	"parent": ["vk-simple-copy-block/copy-button-wrap"],
 	"attributes": {
 		"text": {
