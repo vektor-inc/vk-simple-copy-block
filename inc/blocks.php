@@ -12,6 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_action(
 	'init',
 	function () {
+		load_plugin_textdomain( 'vk-simple-copy-block' );
 		$blocks = array(
 			'simple-copy',
 			'copy-target',
@@ -21,6 +22,10 @@ add_action(
 		foreach ( $blocks as $block ) {
 			register_block_type(
 				VK_SIMPLE_COPY_BLOCK_DIR_PATH . 'build/' . $block . '/'
+			);
+			wp_set_script_translations(
+				'vk-simple-copy-block-'. $block . '-editor-script-js',
+				'vk-simple-copy-block'
 			);
 		}
 	}
