@@ -32,6 +32,8 @@ e.g.
 
 == Changelog ==
 
+[ Specification Change ] Disable HTML editing for blocks with inner blocks, as the blocks are broken.
+
 = 0.1.2 =
 [ Fix ] Translation
 

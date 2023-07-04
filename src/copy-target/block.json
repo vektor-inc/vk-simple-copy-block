@@ -9,6 +9,7 @@
 		"vk-simple-copy-block/simple-copy"
 	],
 	"supports": {
+		"html": false,
 		"className": true,
 		"spacing": {
 			"padding": true,
