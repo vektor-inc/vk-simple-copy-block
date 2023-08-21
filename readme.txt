@@ -1,10 +1,10 @@
 === VK Simple Copy Block ===
 Contributors: vektor-inc,shimotomoki
 Donate link:
-Tags: Gutenberg,copy & paste,copy & paste patterns
+Tags: Gutenberg,copy & paste,copy & paste patterns,block
 Requires at least: 6.1
 Tested up to: 6.3
-Stable tag: 0.1.2.0
+Stable tag: 0.1.3.0
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -32,7 +32,8 @@ e.g.
 
 == Changelog ==
 
-[ Other ] Update the required WordPress version
+= 0.1.3 =
+[ Other ] Update the test up WordPress version
 [ Specification Change ] Disable HTML editing for blocks with inner blocks, as the blocks are broken.
 
 = 0.1.2 =
