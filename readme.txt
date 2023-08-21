@@ -3,7 +3,7 @@ Contributors: vektor-inc,shimotomoki
 Donate link:
 Tags: Gutenberg,copy & paste,copy & paste patterns
 Requires at least: 6.1
-Tested up to: 6.2.0
+Tested up to: 6.3
 Stable tag: 0.1.2.0
 Requires PHP: 7.2
 License: GPLv2 or later
@@ -32,6 +32,7 @@ e.g.
 
 == Changelog ==
 
+[ Other ] Update the required WordPress version
 [ Specification Change ] Disable HTML editing for blocks with inner blocks, as the blocks are broken.
 
 = 0.1.2 =
