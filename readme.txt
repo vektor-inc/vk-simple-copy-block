@@ -4,7 +4,7 @@ Donate link:
 Tags: Gutenberg,copy & paste,copy & paste patterns,block
 Requires at least: 6.1
 Tested up to: 6.3
-Stable tag: 0.1.3.0
+Stable tag: 0.1.4.0
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -32,6 +32,7 @@ e.g.
 
 == Changelog ==
 
+= 0.1.4 =
 [ Specification change ] Fix Block Category
 
 = 0.1.3 =
