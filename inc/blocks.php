@@ -51,7 +51,7 @@ add_action(
 				VK_SIMPLE_COPY_BLOCK_DIR_PATH . 'build/' . $block . '/'
 			);
 			wp_set_script_translations(
-				'vk-simple-copy-block-'. $block . '-editor-script-js',
+				'vk-simple-copy-block-' . $block . '-editor-script-js',
 				'vk-simple-copy-block'
 			);
 		}
