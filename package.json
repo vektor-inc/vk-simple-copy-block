@@ -5,6 +5,7 @@
 	"scripts": {
 		"build": "wp-scripts build",
 		"watch": "wp-scripts start",
+		"update": "ncu -u -x '@wordpress/scripts' && rm -rf node_modules package-lock.json && npm install",
 		"dist": "composer install --no-dev && npx gulp dist && composer install",
 		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
@@ -12,15 +13,19 @@
 		"lint:php": "composer install && composer format && composer phpcs",
 		"wp-env": "wp-env",
 		"packages-update": "wp-scripts packages-update",
-		"phpunit": "composer install && npx wp-env run phpunit \"phpunit -c /var/www/html/wp-content/plugins/vk-simple-copy-block/phpunit.xml.dist --verbose\"",
+		"phpunit": "composer install && wp-env run tests-cli --env-cwd='wp-content/plugins/vk-simple-copy-block' vendor/bin/phpunit -c .phpunit.xml --verbose",
 		"prepare": "husky install"
 	},
 	"devDependencies": {
-		"@wordpress/env": "^5.13.0",
-		"@wordpress/scripts": "^25.4.0",
-		"classnames": "^2.3.2",
-		"gulp": "^4.0.2",
-		"husky": "^8.0.3",
-		"prettier": "^2.8.4"
+		"@wordpress/env": "^10.1.0",
+		"@wordpress/scripts": "^27.9.0",
+		"classnames": "^2.5.1",
+		"gulp": "^5.0.0",
+		"husky": "^9.0.11",
+		"prettier": "^3.3.2",
+		"npm-check-updates": "^16.14.20"
+	},
+	"volta": {
+		"node": "20.15.0"
 	}
 }

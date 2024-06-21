@@ -9,6 +9,33 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * Add Block Category
+ *
+ * @param array  $categories categories.
+ */
+add_filter(
+	'block_categories_all',
+	function ( $categories ) {
+		foreach ( $categories as $key => $value ) {
+			$keys[] = $value['slug'];
+		}
+		if ( ! in_array( 'vk-simple-copy-block', $keys, true ) ) {
+			$categories = array_merge(
+				$categories,
+				array(
+					array(
+						'slug'  => 'vk-simple-copy-block',
+						'title' => __( 'VK Simple Copy Block', 'vk-simple-copy-block' ),
+						'icon'  => '',
+					),
+				)
+			);
+		}
+		return $categories;
+	}
+);
+
 add_action(
 	'init',
 	function () {
@@ -24,39 +51,14 @@ add_action(
 				VK_SIMPLE_COPY_BLOCK_DIR_PATH . 'build/' . $block . '/'
 			);
 			wp_set_script_translations(
-				'vk-simple-copy-block-'. $block . '-editor-script-js',
+				'vk-simple-copy-block-' . $block . '-editor-script-js',
 				'vk-simple-copy-block'
 			);
 		}
 	}
 );
 
-/**
- * Add Block Category
- *
- * @param array  $categories categories.
- */
-add_filter(
-	'block_categories_all',
-	function ( $categories ) {
-		foreach ( $categories as $key => $value ) {
-			$keys[] = $value['slug'];
-		}
-		if ( ! in_array( 'vk-blocks-cat', $keys, true ) ) {
-			$categories = array_merge(
-				$categories,
-				array(
-					array(
-						'slug'  => 'vk-blocks-cat',
-						'title' => __( 'VK Blocks', 'vk-simple-copy-block' ),
-						'icon'  => '',
-					),
-				)
-			);
-		}
-		return $categories;
-	}
-);
+
 
 /**
  * Register Inner Copy block.

@@ -13,8 +13,8 @@ jobs:
         strategy:
             matrix:
                 php-versions: ['7.4', '8.0', '8.1']
-                wp-versions: ['6.3','6.2','6.1.1']
-        name: PHP Unit test ${{ matrix.php-versions }} / WP ${{ matrix.wp-versions }} Test on ${{ matrix.operating-system }}
+                wp-versions: ['6.3', '6.2', '6.1.1']
+        name: PHP Unit test ${{ matrix.php-versions }} / WP ${{ matrix.wp-versions }} Test
         services:
             mysql:
                 image: mysql:5.7
@@ -27,13 +27,10 @@ jobs:
                     MYSQL_PASSWORD: wordpress
         steps:
             - uses: actions/checkout@v3
-            - name: Read .node-version
-              run: echo "{NODEVERSION}={$(cat .node-version)}" >> $GITHUB_OUTPUT
-              id: nodenv
             - name: Setup Node.js (.node-version)
               uses: actions/setup-node@v3
               with:
-                  node-version: '${{ steps.nodenv.outputs.NODEVERSION }}'
+                  node-version: 20.x
             - name: Cache multiple paths
               uses: actions/cache@v3
               with:

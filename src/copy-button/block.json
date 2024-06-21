@@ -1,7 +1,7 @@
 {
 	"apiVersion": 2,
 	"name": "vk-simple-copy-block/copy-button",
-	"category": "vk-blocks-cat",
+	"category": "vk-simple-copy-block",
 	"title": "Copy Button",
 	"description": "Button to copy the code of the copy target block.",
 	"textdomain": "vk-simple-copy-block",

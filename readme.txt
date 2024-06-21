@@ -32,6 +32,8 @@ e.g.
 
 == Changelog ==
 
+[ Specification change ] Fix Block Category
+
 = 0.1.3 =
 [ Other ] Update the test up WordPress version
 [ Specification Change ] Disable HTML editing for blocks with inner blocks, as the blocks are broken.

@@ -89,7 +89,7 @@ class SimpleCopyTest extends WP_UnitTestCase {
 		print 'vk_simple_copy_block_get_copy_target_block_contents()' . PHP_EOL;
 		print '------------------------------------' . PHP_EOL;
 
-		$this->go_to( get_permalink( $this->post ) );
+		$this->go_to( get_permalink( $this->post_id ) );
 		$return = vk_simple_copy_block_get_copy_target_block_contents();
 
 		// print 'return  :';

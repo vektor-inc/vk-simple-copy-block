@@ -21,7 +21,7 @@ if (
 	pathString.indexOf('widgets.php') === -1
 ) {
 	registerBlockType(name, {
-		title: __( 'Copy Button', 'vk-simple-copy-block' ),
+		title: __('Copy Button', 'vk-simple-copy-block'),
 		icon: <CopyIcon />,
 		...settings,
 		save,
