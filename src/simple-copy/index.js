@@ -22,8 +22,11 @@ if (
 	pathString.indexOf('widgets.php') === -1
 ) {
 	registerBlockType(name, {
-		title: __( 'Simple Copy', 'vk-simple-copy-block' ),
-		description: __( 'A block to copy the code of the block inside the copy target.', 'vk-simple-copy-block' ),
+		title: __('Simple Copy', 'vk-simple-copy-block'),
+		description: __(
+			'A block to copy the code of the block inside the copy target.',
+			'vk-simple-copy-block'
+		),
 		icon: <CopyIcon />,
 		...settings,
 		save,

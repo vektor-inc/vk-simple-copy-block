@@ -5,9 +5,7 @@
 	"title": "Copy Target",
 	"description": "The inner blocks of this block will be copied.",
 	"textdomain": "vk-simple-copy-block",
-	"parent": [
-		"vk-simple-copy-block/simple-copy"
-	],
+	"parent": ["vk-simple-copy-block/simple-copy"],
 	"supports": {
 		"html": false,
 		"className": true,

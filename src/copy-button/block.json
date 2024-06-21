@@ -5,9 +5,7 @@
 	"title": "Copy Button",
 	"description": "Button to copy the code of the copy target block.",
 	"textdomain": "vk-simple-copy-block",
-	"parent": [
-		"vk-simple-copy-block/copy-button-wrap"
-	],
+	"parent": ["vk-simple-copy-block/copy-button-wrap"],
 	"attributes": {
 		"text": {
 			"type": "string"
@@ -34,10 +32,7 @@
 		},
 		"spacing": {
 			"__experimentalSkipSerialization": true,
-			"padding": [
-				"horizontal",
-				"vertical"
-			],
+			"padding": ["horizontal", "vertical"],
 			"__experimentalDefaultControls": {
 				"padding": true
 			}
