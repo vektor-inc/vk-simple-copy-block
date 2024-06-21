@@ -5,7 +5,7 @@
 	"scripts": {
 		"build": "wp-scripts build",
 		"watch": "wp-scripts start",
-		"update": "ncu -u && rm -rf node_modules package-lock.json && npm install",
+		"update": "ncu -u -x '@wordpress/scripts' && rm -rf node_modules package-lock.json && npm install",
 		"dist": "composer install --no-dev && npx gulp dist && composer install",
 		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
@@ -18,11 +18,14 @@
 	},
 	"devDependencies": {
 		"@wordpress/env": "^10.1.0",
-		"@wordpress/scripts": "^28.1.0",
+		"@wordpress/scripts": "^27.9.0",
 		"classnames": "^2.5.1",
 		"gulp": "^5.0.0",
 		"husky": "^9.0.11",
 		"prettier": "^3.3.2",
 		"npm-check-updates": "^16.14.20"
+	},
+	"volta": {
+		"node": "20.15.0"
 	}
 }
