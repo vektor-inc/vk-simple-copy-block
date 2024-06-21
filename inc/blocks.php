@@ -42,13 +42,13 @@ add_filter(
 		foreach ( $categories as $key => $value ) {
 			$keys[] = $value['slug'];
 		}
-		if ( ! in_array( 'vk-blocks-cat', $keys, true ) ) {
+		if ( ! in_array( 'vk-simple-copy-block', $keys, true ) ) {
 			$categories = array_merge(
 				$categories,
 				array(
 					array(
-						'slug'  => 'vk-blocks-cat',
-						'title' => __( 'VK Blocks', 'vk-simple-copy-block' ),
+						'slug'  => 'vk-simple-copy-block',
+						'title' => __( 'VK Simple Copy Block', 'vk-simple-copy-block' ),
 						'icon'  => '',
 					),
 				)
