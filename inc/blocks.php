@@ -9,28 +9,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-add_action(
-	'init',
-	function () {
-		load_plugin_textdomain( 'vk-simple-copy-block' );
-		$blocks = array(
-			'simple-copy',
-			'copy-target',
-			'copy-button-wrap',
-			'copy-button',
-		);
-		foreach ( $blocks as $block ) {
-			register_block_type(
-				VK_SIMPLE_COPY_BLOCK_DIR_PATH . 'build/' . $block . '/'
-			);
-			wp_set_script_translations(
-				'vk-simple-copy-block-'. $block . '-editor-script-js',
-				'vk-simple-copy-block'
-			);
-		}
-	}
-);
-
 /**
  * Add Block Category
  *
@@ -57,6 +35,30 @@ add_filter(
 		return $categories;
 	}
 );
+
+add_action(
+	'init',
+	function () {
+		load_plugin_textdomain( 'vk-simple-copy-block' );
+		$blocks = array(
+			'simple-copy',
+			'copy-target',
+			'copy-button-wrap',
+			'copy-button',
+		);
+		foreach ( $blocks as $block ) {
+			register_block_type(
+				VK_SIMPLE_COPY_BLOCK_DIR_PATH . 'build/' . $block . '/'
+			);
+			wp_set_script_translations(
+				'vk-simple-copy-block-'. $block . '-editor-script-js',
+				'vk-simple-copy-block'
+			);
+		}
+	}
+);
+
+
 
 /**
  * Register Inner Copy block.

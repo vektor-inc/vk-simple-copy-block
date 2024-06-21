@@ -1,10 +1,12 @@
 {
 	"apiVersion": 2,
 	"name": "vk-simple-copy-block/copy-button-wrap",
-	"category": "vk-blocks-cat",
+	"category": "vk-simple-copy-block",
 	"title": "Copy Button",
 	"textdomain": "vk-simple-copy-block",
-	"parent": ["vk-simple-copy-block/simple-copy"],
+	"parent": [
+		"vk-simple-copy-block/simple-copy"
+	],
 	"attributes": {
 		"buttonAlign": {
 			"type": "string"
@@ -14,7 +16,10 @@
 		"html": false,
 		"className": true,
 		"spacing": {
-			"margin": ["top", "bottom"]
+			"margin": [
+				"top",
+				"bottom"
+			]
 		},
 		"reusable": false
 	},

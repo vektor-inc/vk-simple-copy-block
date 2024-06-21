@@ -1,7 +1,7 @@
 {
 	"apiVersion": 2,
 	"name": "vk-simple-copy-block/copy-target",
-	"category": "vk-blocks-cat",
+	"category": "vk-simple-copy-block",
 	"title": "Copy Target",
 	"description": "The inner blocks of this block will be copied.",
 	"textdomain": "vk-simple-copy-block",
