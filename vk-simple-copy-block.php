@@ -18,4 +18,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 define( 'VK_SIMPLE_COPY_BLOCK_DIR_PATH', plugin_dir_path( __FILE__ ) );
+define( 'VK_SIMPLE_COPY_BLOCK_DIR_URL', plugin_dir_url( __FILE__ ) );
 require_once __DIR__ . '/inc/load.php';

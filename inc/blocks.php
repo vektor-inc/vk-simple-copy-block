@@ -40,6 +40,18 @@ add_action(
 	'init',
 	function () {
 		load_plugin_textdomain( 'vk-simple-copy-block' );
+
+		// WordPress 6.5 以下の対策
+		if ( ! wp_script_is( 'react-jsx-runtime', 'registered' ) ) {
+			wp_register_script(
+				'react-jsx-runtime',
+				VK_SIMPLE_COPY_BLOCK_DIR_URL . 'build/react-jsx-runtime/react-jsx-runtime.js',
+				array( 'react' ),
+				'18.3.1',
+				true
+			);
+		}
+
 		$blocks = array(
 			'simple-copy',
 			'copy-target',
