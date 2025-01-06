@@ -32,7 +32,7 @@ e.g.
 
 == Changelog ==
 
-~ 0.1.5 =
+= 0.1.5 =
 [ Other ] change version only ( change WordPress.org banner ).
 
 = 0.1.4 =
