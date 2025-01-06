@@ -33,7 +33,7 @@ e.g.
 == Changelog ==
 
 ~ 0.1.5 =
-[ Other ] change version only ( change wordpress.org banner ).
+[ Other ] change version only ( change WordPress.org banner ).
 
 = 0.1.4 =
 [ Specification change ] Fix Block Category
