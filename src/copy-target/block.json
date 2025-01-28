@@ -1,5 +1,5 @@
 {
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"name": "vk-simple-copy-block/copy-target",
 	"category": "vk-simple-copy-block",
 	"title": "Copy Target",
