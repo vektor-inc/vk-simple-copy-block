@@ -13,7 +13,7 @@ jobs:
         strategy:
             matrix:
                 php-versions: ['7.4', '8.2', '8.3']
-                wp-versions: ['6.8','6.7','6.6']
+                wp-versions: ['6.8', '6.7', '6.6']
         name: PHP Unit test ${{ matrix.php-versions }} / WP ${{ matrix.wp-versions }} Test
         services:
             mysql:
