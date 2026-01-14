@@ -45,10 +45,47 @@ jobs:
             - name: Install Composer Packages
               run: composer install
             - name: Install several WordPress version by wp-env.override.json
-              run: WP_ENV_PHP_VERSION=${{ matrix.php-versions }} WP_ENV_CORE=WordPress/WordPress#${{ matrix.wp-versions }} npm run wp-env start --update
+              run: |
+                n=0
+                success=false
+                until [ "$n" -ge 3 ]
+                do
+                  if WP_ENV_PHP_VERSION=${{ matrix.php-versions }} WP_ENV_CORE=WordPress/WordPress#${{ matrix.wp-versions }} npm run wp-env start --update; then
+                    success=true
+                    break
+                  fi
+                  n=$((n+1))
+                  echo "Retrying wp-env start --update ($n)..."
+                  sleep 5
+                done
+                if [ "$success" = false ]; then
+                  echo "Error: Failed to start wp-env after 3 attempts"
+                  npm run wp-env info || true
+                  exit 1
+                fi
+            - name: Wait for wp-env containers to be ready
+              run: |
+                echo "Waiting for wp-env containers to be ready..."
+                n=0
+                until [ "$n" -ge 30 ]
+                do
+                  if npm run wp-env run cli wp core version > /dev/null 2>&1; then
+                    echo "Containers are ready!"
+                    break
+                  fi
+                  n=$((n+1))
+                  echo "Waiting for containers... ($n/30)"
+                  sleep 2
+                done
+                if [ "$n" -ge 30 ]; then
+                  echo "Error: Containers did not start within 60 seconds"
+                  npm run wp-env info || true
+                  exit 1
+                fi
             - name: Check WordPress Version
               run: npm run wp-env run cli wp core version
-            - name: Start Environment
-              run: npx wp-env start && sudo chmod -R 777 ~/wp-env
+            # Change Permissions
+            - name: Change Permissions
+              run: sudo chmod -R 777 ~/wp-env
             - name: Run PHP Unit Test
               run: npm run phpunit
