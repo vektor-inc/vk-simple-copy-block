@@ -32,6 +32,8 @@ e.g.
 
 == Changelog ==
 
+[ Specification change ] Disabled delete and move buttons for child blocks to prevent users from accidentally operating them.
+
 = 0.1.6 =
 [ Specification change ] Fixed the zoom-out toggle not always displaying in the editor toolbar (updated blocks.json API version from 2 to 3).
 
