@@ -16,7 +16,8 @@
 		"spacing": {
 			"margin": ["top", "bottom"]
 		},
-		"reusable": false
+		"reusable": false,
+		"lock": false
 	},
 	"editorScript": "file:./index.js"
 }

@@ -56,7 +56,8 @@
 				"style": true,
 				"width": true
 			}
-		}
+		},
+		"lock": false
 	},
 	"editorScript": "file:./index.js"
 }

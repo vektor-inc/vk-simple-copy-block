@@ -27,7 +27,8 @@
 				"width": true
 			}
 		},
-		"reusable": false
+		"reusable": false,
+		"lock": false
 	},
 	"editorScript": "file:./index.js"
 }
