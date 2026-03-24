@@ -31,6 +31,7 @@ e.g.
 
 == Changelog ==
 
+= 0.1.7 =
 [ Specification change ] Disabled delete and move buttons for child blocks to prevent users from accidentally operating them.
 
 = 0.1.6 =
