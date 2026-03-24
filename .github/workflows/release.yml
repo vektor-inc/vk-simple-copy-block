@@ -41,9 +41,15 @@ jobs:
                   path: vendor
                   key: ${{ runner.os }}-php${{ matrix.php-versions }}-${{ hashFiles('**/composer.lock') }}
             - name: Install dependencies
-              run: npm install && composer install
+              run: npm ci && composer install
             - name: Create dist
               run: npm run dist
+            - name: Upload dist artifact
+              if: matrix.php-versions == '8.3' && matrix.wp-versions == '6.9'
+              uses: actions/upload-artifact@v4
+              with:
+                  name: dist
+                  path: dist/
             - name: Create wp-env override for dist smoke test
               run: |
                   printf '{"plugins": ["./dist/%s"]}' "${{ env.plugin_name }}" > wp-env.override.json
@@ -83,18 +89,11 @@ jobs:
         needs: [test]
         steps:
             - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
-            - name: Setup Node.js
-              uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+            - name: Download dist artifact
+              uses: actions/download-artifact@v4
               with:
-                  node-version: 20.15.0
-            - name: Setup PHP
-              uses: shivammathur/setup-php@accd6127cb78bee3e8082180cb391013d204ef9f # v2
-              with:
-                  php-version: '8.3'
-            - name: Install dependencies
-              run: npm install && composer install
-            - name: Create dist
-              run: npm run dist
+                  name: dist
+                  path: dist/
             - name: WordPress Plugin Deploy
               uses: 10up/action-wordpress-plugin-deploy@54bd289b8525fd23a5c365ec369185f2966529c2 # stable
               env:
@@ -110,19 +109,11 @@ jobs:
         permissions:
             contents: write
         steps:
-            - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
-            - name: Setup Node.js
-              uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+            - name: Download dist artifact
+              uses: actions/download-artifact@v4
               with:
-                  node-version: 20.15.0
-            - name: Setup PHP
-              uses: shivammathur/setup-php@accd6127cb78bee3e8082180cb391013d204ef9f # v2
-              with:
-                  php-version: '8.3'
-            - name: Install dependencies
-              run: npm install && composer install
-            - name: Create dist
-              run: npm run dist
+                  name: dist
+                  path: dist/
             - name: Create zip
               run: |
                   cd dist/ && zip -r ${{ env.plugin_name }}.zip ${{ env.plugin_name }}/ && mv ${{ env.plugin_name }}.zip ${GITHUB_WORKSPACE}
