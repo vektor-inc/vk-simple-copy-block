@@ -6,7 +6,7 @@
 		"build": "wp-scripts build && webpack --config webpack2.config.js",
 		"watch": "wp-scripts start",
 		"update": "ncu -u && rm -rf node_modules package-lock.json && npm install",
-		"dist": "composer install --no-dev && npx gulp dist && composer install",
+		"dist": "npm run build && composer install --no-dev && npx gulp dist && composer install",
 		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js src/ --fix",
