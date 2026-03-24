@@ -6,3 +6,4 @@ dist/
 vendor/
 *.override.json
 .vscode/
+.claude/settings.local.json
