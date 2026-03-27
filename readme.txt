@@ -31,8 +31,6 @@ e.g.
 
 == Changelog ==
 
-[ Bug Fix ] Fixed binary files (images, etc.) being corrupted during dist process
-
 = 0.1.7 =
 [ Specification change ] Disabled delete and move buttons for child blocks to prevent users from accidentally operating them.
 
