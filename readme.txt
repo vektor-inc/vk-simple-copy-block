@@ -32,6 +32,8 @@ e.g.
 
 == Changelog ==
 
+[ Other ][ Simple Copy Block ] Make blocks editable when inserted from patterns in WordPress 7.0.
+
 = 0.1.7 =
 [ Specification change ] Disabled delete and move buttons for child blocks to prevent users from accidentally operating them.
 
