@@ -50,6 +50,15 @@ jobs:
               with:
                   name: dist
                   path: dist/
+            - name: Copy test dependencies into dist for phpunit
+              run: |
+                  rm -rf "dist/${{ env.plugin_name }}/vendor"
+                  cp -r vendor "dist/${{ env.plugin_name }}/vendor"
+                  for f in .phpunit.xml phpunit.xml phpunit.xml.dist; do
+                    [ -f "$f" ] && cp "$f" "dist/${{ env.plugin_name }}/$f" || true
+                  done
+                  [ -d test ] && cp -r test "dist/${{ env.plugin_name }}/test" || true
+                  [ -d tests ] && cp -r tests "dist/${{ env.plugin_name }}/tests" || true
             - name: Create wp-env override for dist smoke test
               run: |
                   printf '{"plugins": ["./dist/%s"]}' "${{ env.plugin_name }}" > .wp-env.override.json
