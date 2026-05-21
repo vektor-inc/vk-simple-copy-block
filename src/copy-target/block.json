@@ -7,6 +7,7 @@
 	"textdomain": "vk-simple-copy-block",
 	"parent": ["vk-simple-copy-block/simple-copy"],
 	"supports": {
+		"contentRole": true,
 		"html": false,
 		"className": true,
 		"spacing": {
