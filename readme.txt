@@ -32,6 +32,8 @@ e.g.
 
 == Changelog ==
 
+[ Spec Change ] Improved the copy button to use the modern browser standard method for copying to the clipboard.
+
 = 0.1.8 =
 [ Other ][ Simple Copy Block ] Make blocks editable when inserted from an unsynced pattern in WordPress 7.0.
 
