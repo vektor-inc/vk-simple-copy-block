@@ -34,17 +34,41 @@ window.addEventListener('load', function () {
 	const buttons = document.querySelectorAll('.vk-simple-copy-button');
 
 	const timeoutId = [];
-	function handleClick(event) {
+
+	// Main click handler (uses the Clipboard API first, falling back to execCommand). クリック時のメインハンドラ（Clipboard API 優先・execCommand フォールバック）
+	async function handleClick(event) {
 		const button = event.currentTarget;
 
-		// Grab the pattern markup from hidden input
+		// Grab the pattern markup from hidden input. 隠し input からパターンのマークアップを取得する
 		const blockDataInput = button.previousElementSibling;
 
-		const content = JSON.parse(decodeURIComponent(blockDataInput.value));
+		// If JSON.parse fails, log the error and stop processing. JSON.parse 失敗時はエラーを出力して処理を中断する
+		let content;
+		try {
+			content = JSON.parse(decodeURIComponent(blockDataInput.value));
+		} catch (e) {
+			// eslint-disable-next-line no-console
+			console.error(
+				'vk-simple-copy-block: Failed to parse block data',
+				e
+			);
+			return;
+		}
 
-		const success = copyToClipboard(content);
+		// Use the Clipboard API as the primary method when available, and fall back to execCommand if it fails. Clipboard API が利用可能な場合は主処理として使用し、失敗した場合は execCommand にフォールバックする
+		let success = false;
+		if (navigator.clipboard) {
+			try {
+				await navigator.clipboard.writeText(content);
+				success = true;
+			} catch (e) {
+				success = copyToClipboard(content);
+			}
+		} else {
+			success = copyToClipboard(content);
+		}
 
-		// Make sure we reset focus in case it was lost in the 'copy' command.
+		// Make sure we reset focus in case it was lost in the 'copy' command. 'copy' コマンド実行中にフォーカスが失われた場合に備えてフォーカスを戻す
 		button.focus();
 
 		if (success) {
@@ -56,7 +80,9 @@ window.addEventListener('load', function () {
 				button.classList.remove('copy-success');
 			}, 3000);
 		} else {
-			// TODO Handle error case
+			// Log the failure when both the Clipboard API and execCommand fail. Clipboard API と execCommand の両方が失敗した場合にログを出力する
+			// eslint-disable-next-line no-console
+			console.error('vk-simple-copy-block: Failed to copy to clipboard');
 		}
 	}
 
