@@ -79,6 +79,10 @@ window.addEventListener('load', function () {
 			timeoutId[idx] = setTimeout(() => {
 				button.classList.remove('copy-success');
 			}, 3000);
+		} else {
+			// Log the failure when both the Clipboard API and execCommand fail. Clipboard API と execCommand の両方が失敗した場合にログを出力する
+			// eslint-disable-next-line no-console
+			console.error('vk-simple-copy-block: Failed to copy to clipboard');
 		}
 	}
 
