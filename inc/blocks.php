@@ -80,7 +80,7 @@ add_action(
  * @return string
  */
 function vk_simple_copy_block_render( $block_content, $block ) {
-	$block_id = $block['attrs']['blockId'];
+	$block_id = isset( $block['attrs']['blockId'] ) ? $block['attrs']['blockId'] : '';
 	if ( empty( $block_id ) ) {
 		return $block_content;
 	}

@@ -34,6 +34,8 @@ e.g.
 
 [ Spec Change ] Improved the copy button to use the modern browser standard method for copying to the clipboard.
 
+[ Bug Fix ][ Simple Copy Block ] Fixed a possible PHP 8 "Undefined array key" warning when rendering blocks that have no blockId attribute.
+
 = 0.1.8 =
 [ Other ][ Simple Copy Block ] Make blocks editable when inserted from an unsynced pattern in WordPress 7.0.
 
