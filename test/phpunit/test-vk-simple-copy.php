@@ -102,4 +102,86 @@ class SimpleCopyTest extends WP_UnitTestCase {
 		// print PHP_EOL;
 		$this->assertSame( $correct, $return );
 	}
+
+	/**
+	 * vk_simple_copy_block_render() のテスト。
+	 * Test for vk_simple_copy_block_render().
+	 *
+	 * blockId 属性が無い・空・未該当のブロックを渡しても
+	 * PHP 8 の "Undefined array key" 警告を出さずに $block_content をそのまま返すことを検証する。
+	 * Verify that a block without a valid blockId returns the original $block_content
+	 * without emitting a PHP 8 "Undefined array key" warning.
+	 */
+	public function test_vk_simple_copy_block_render() {
+
+		// テスト用のダミーブロックコンテンツ。
+		// Dummy block content used for every case.
+		$block_content = '<div>dummy</div>';
+
+		// テスト条件と期待値の一覧。'block' には render 関数へ渡す $block 配列そのものを持たせる。
+		// List of test conditions and expected results. 'block' holds the $block array passed to the render function.
+		$test_cases = array(
+			array(
+				'test_condition_name' => 'attrs キー自体が存在しない場合（属性保存前・プログラム挿入ブロック） => $block_content をそのまま返す（Undefined array key 警告が出ない）',
+				'conditions'          => array(
+					// attrs キーごと持たないブロック。
+					// A block that has no attrs key at all.
+					'block' => array(),
+				),
+				'expected'            => $block_content,
+			),
+			array(
+				'test_condition_name' => 'attrs に blockId が無い場合 => $block_content をそのまま返す（Undefined array key 警告が出ない）',
+				'conditions'          => array(
+					// blockId キーを持たない attrs。
+					// attrs without a blockId key.
+					'block' => array(
+						'attrs' => array(),
+					),
+				),
+				'expected'            => $block_content,
+			),
+			array(
+				'test_condition_name' => 'attrs の blockId が空文字の場合 => $block_content をそのまま返す',
+				'conditions'          => array(
+					'block' => array(
+						'attrs' => array(
+							'blockId' => '',
+						),
+					),
+				),
+				'expected'            => $block_content,
+			),
+			array(
+				'test_condition_name' => 'blockId は設定されているがコピー対象コンテンツが無い場合 => $block_content をそのまま返す',
+				'conditions'          => array(
+					'block' => array(
+						'attrs' => array(
+							'blockId' => 'not-exist-block-id',
+						),
+					),
+				),
+				'expected'            => $block_content,
+			),
+		);
+
+		print PHP_EOL;
+		print '------------------------------------' . PHP_EOL;
+		print 'vk_simple_copy_block_render()' . PHP_EOL;
+		print '------------------------------------' . PHP_EOL;
+
+		foreach ( $test_cases as $case ) {
+			// テスト対象の $block 配列。attrs キーの有無ごと各ケースで指定する。
+			// The $block array under test. Each case specifies it including whether the attrs key exists.
+			$block = $case['conditions']['block'];
+
+			// レンダー関数を実行する。修正前は blockId 未設定の場合に警告→例外で失敗する。
+			// Run the render function. Before the fix this throws on the missing blockId key.
+			$actual = vk_simple_copy_block_render( $block_content, $block );
+
+			// 期待値テスト。
+			// Assert the expected result.
+			$this->assertSame( $case['expected'], $actual, $case['test_condition_name'] );
+		}
+	}
 }
