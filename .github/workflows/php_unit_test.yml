@@ -6,9 +6,11 @@ on:
             - main
             - develop
             - ^feature/.+
+        types: [opened, reopened, labeled, synchronize]
 
 jobs:
     php_unit:
+        if: contains(github.event.pull_request.labels.*.name, 'run-ci')
         runs-on: ubuntu-latest
         strategy:
             matrix:
