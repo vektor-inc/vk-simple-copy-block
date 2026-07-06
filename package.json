@@ -7,7 +7,7 @@
 		"watch": "wp-scripts start",
 		"update": "ncu -u && rm -rf node_modules package-lock.json && npm install",
 		"dist": "rimraf dist && npm run build && composer install --no-dev && npx gulp dist",
-		"zip": "npm run dist && bestzip dist/vk-simple-copy-block.zip dist/vk-simple-copy-block/",
+		"zip": "npm run dist && cd dist && bestzip vk-simple-copy-block.zip vk-simple-copy-block/",
 		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js src/ --fix",
