@@ -6,8 +6,8 @@
 		"build": "wp-scripts build && webpack --config webpack2.config.js",
 		"watch": "wp-scripts start",
 		"update": "ncu -u && rm -rf node_modules package-lock.json && npm install",
-		"dist": "rm -rf dist && npm run build && composer install --no-dev && npx gulp dist",
-		"zip": "npm run dist && cd dist && zip -r vk-simple-copy-block.zip vk-simple-copy-block",
+		"dist": "rimraf dist && npm run build && composer install --no-dev && npx gulp dist",
+		"zip": "npm run dist && bestzip dist/vk-simple-copy-block.zip dist/vk-simple-copy-block/",
 		"format": "wp-scripts format",
 		"lint:css": "wp-scripts lint-style",
 		"lint:js": "wp-scripts lint-js src/ --fix",
@@ -20,11 +20,13 @@
 	"devDependencies": {
 		"@wordpress/env": "^10.4.0",
 		"@wordpress/scripts": "^28.4.0",
+		"bestzip": "^2.2.5",
 		"classnames": "^2.5.1",
 		"gulp": "^5.0.0",
 		"husky": "^9.1.4",
+		"npm-check-updates": "^17.0.3",
 		"prettier": "^3.3.3",
-		"npm-check-updates": "^17.0.3"
+		"rimraf": "^6.1.3"
 	},
 	"volta": {
 		"node": "20.15.0"

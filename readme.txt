@@ -36,6 +36,8 @@ e.g.
 
 [ Bug Fix ][ Simple Copy Block ] Fixed a possible PHP 8 "Undefined array key" warning when rendering blocks that have no blockId attribute.
 
+[ Dev Environment ] Replaced Unix-only shell commands in the `dist`/`zip` npm scripts with `rimraf`/`bestzip` so they also work on Windows.
+
 = 0.1.8 =
 [ Other ][ Simple Copy Block ] Make blocks editable when inserted from an unsynced pattern in WordPress 7.0.
 
