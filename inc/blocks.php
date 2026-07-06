@@ -95,6 +95,12 @@ function vk_simple_copy_block_render( $block_content, $block ) {
 		$block_content     = str_replace( '<input type="hidden"/>', '<input type="hidden" value="' . rawurlencode( wp_json_encode( $raw_block_content ) ) . '" />', $block_content );
 		return $block_content;
 	}
+
+	// $array に対象の blockId が存在しない場合も、加工前の $block_content をそのまま返す。
+	// これを忘れると null が返り、フィルタ経由でブロックの出力自体が空になってしまう。
+	// Also return the original $block_content when the target blockId does not exist in $array.
+	// Without this, the function returns null, which would empty out the block output via the filter.
+	return $block_content;
 }
 add_filter( 'render_block_vk-simple-copy-block/simple-copy', 'vk_simple_copy_block_render', 10, 2 );
 
