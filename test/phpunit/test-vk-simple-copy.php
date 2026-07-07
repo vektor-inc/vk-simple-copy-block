@@ -111,8 +111,23 @@ class SimpleCopyTest extends WP_UnitTestCase {
 	 * PHP 8 の "Undefined array key" 警告を出さずに $block_content をそのまま返すことを検証する。
 	 * Verify that a block without a valid blockId returns the original $block_content
 	 * without emitting a PHP 8 "Undefined array key" warning.
+	 *
+	 * また、$array（コピー対象コンテンツの配列）自体は空でないが、
+	 * 対象の blockId が $array に存在しないケースでも $block_content をそのまま返すこと
+	 * （null を返さないこと）を検証する。（Issue #55）
+	 * Also verifies that when $array (the array of copy target contents) itself is not empty,
+	 * but the target blockId does not exist in $array, the function still returns $block_content
+	 * as-is (and not null). (Issue #55)
 	 */
 	public function test_vk_simple_copy_block_render() {
+
+		// setUp() で作成した投稿へ遷移し、get_the_content() が実データを返す状態にする。
+		// これにより vk_simple_copy_block_get_copy_target_block_contents() が返す $array が
+		// 空でない状態でテストできる（Issue #55 の再現に必要）。
+		// Go to the post created in setUp() so that get_the_content() returns real data.
+		// This lets vk_simple_copy_block_get_copy_target_block_contents() return a non-empty
+		// $array while under test (required to reproduce the bug in Issue #55).
+		$this->go_to( get_permalink( $this->post_id ) );
 
 		// テスト用のダミーブロックコンテンツ。
 		// Dummy block content used for every case.
