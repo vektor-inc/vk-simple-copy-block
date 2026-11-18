@@ -19,7 +19,7 @@
 	},
 	"devDependencies": {
 		"@wordpress/env": "^10.4.0",
-		"@wordpress/scripts": "^28.4.0",
+		"@wordpress/scripts": "^37.1.0",
 		"bestzip": "^2.2.5",
 		"classnames": "^2.5.1",
 		"gulp": "^5.0.0",
